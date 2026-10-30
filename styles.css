@@ -137,7 +137,7 @@
 .services .image-one{background-image:url('images/Handwerk.jpg')}
 .services .image-two{background-image:url('images/Tiermedizin.jpg')}
 .services .image-three{background-image:url('images/Kanzlei.jpg')}
-.services .image-four{background-image:url('images/facility management.jpg')}
+.services .image-four{background-image:url('images/facility management 4.jpg')}
 .services .image-five{background-image:url('images/Einzelhandel.jpg')}
 .services .image-six{background-image:url('images/Dienstleistung.jpg')}
 .blog-search{position:relative}.blog-search input{width:calc(100% - 34px);border:0;outline:0;background:transparent;color:#252d31;font:inherit;font-size:18px}.blog-search input::placeholder{color:#252d31;opacity:1}.blog-search-results{display:none;background:#fff;border:1px solid #d9ddde;border-top:0;box-shadow:0 8px 18px rgba(37,45,49,.08)}.blog-sidebar.search-open .blog-search-results{display:block}.blog-search-results a{display:block;color:#252d31;text-decoration:none;font-size:15px;line-height:1.35;padding:12px 14px;border-bottom:1px solid #eceeee}.blog-search-results a:last-child{border-bottom:0}.blog-search-results a:hover{background:#eef1f0}.blog-search-results a[hidden]{display:none}
@@ -146,9 +146,19 @@
 @media(max-width:900px){.category-hero{min-height:500px}.category-post{grid-template-columns:1fr;gap:25px}.category-post-image{height:360px}.category-intro h2{margin-bottom:48px}.category-page footer .copyright span{float:none;display:block;margin-top:12px}}
 @media(max-width:520px){.category-hero{min-height:440px}.category-hero h1{font-size:52px}.category-hero span{font-size:16px}.category-content{padding-top:65px}.category-posts{gap:55px}.category-post-image{height:250px}.category-post-copy h3{font-size:31px}}
 
+.legal-page{min-height:100vh;background:#1b292d;color:#b7c4c8}.legal-content{max-width:900px;margin:0 auto;padding:140px 6% 100px}.legal-content>a{color:#eef1f1;text-decoration:none}.legal-content h1{margin:50px 0 25px;color:#eef1f1;font-size:clamp(42px,6vw,78px);font-weight:300}.legal-content h2{margin-top:50px;color:#eef1f1;font-weight:400}.legal-content p{max-width:700px;line-height:1.7}
+
+/* Main navigation links should not inherit browser underlines. */
+.header nav a,.contact-pill{ text-decoration:none; }
+.header{border-top:0;}
+
 .promo-banner{position:sticky;top:0;z-index:10;min-height:38px;padding:5px 5%;display:flex;align-items:center;justify-content:center;gap:14px;background:linear-gradient(100deg,#8b9699,#aeb7b9 52%,#7d898c);color:#fff;text-align:center;font-size:12px;line-height:1.25;letter-spacing:.01em}
 .promo-banner a{color:#fff;font-weight:400;text-decoration:underline;text-underline-offset:3px;white-space:nowrap;transition:opacity .2s ease}
 .promo-banner a:hover{opacity:.7}
 .header{top:38px}
 @media(max-width:900px){.header{top:36px}.promo-banner{min-height:36px;padding:5px 4%;gap:10px;font-size:11px}}
 @media(max-width:520px){.promo-banner{justify-content:space-between;gap:8px;text-align:left}.promo-banner span{max-width:58%}.promo-banner a{white-space:normal;text-align:right}}
+.intro-side .underlink{display:flex;width:max-content;align-items:center;margin-top:28px;padding:10px 18px;color:#f2f4f4;background:var(--pill);border:0;border-radius:40px;text-decoration:none}
+.intro-side .underlink::after{display:none}
+.consent-banner{position:fixed;z-index:20;left:24px;right:24px;bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:28px;max-width:920px;margin:auto;padding:20px 24px;color:#eef1f1;background:#1b292d;border:1px solid #687579;border-radius:16px;box-shadow:0 12px 40px #10191dcc}.consent-copy{max-width:650px}.consent-copy strong{font-size:17px;font-weight:500}.consent-copy p{margin:6px 0 0;color:#b7c4c8;font-size:14px;line-height:1.45}.consent-actions{display:flex;flex-shrink:0;gap:10px}.consent-actions button{padding:10px 17px;border:1px solid #829095;border-radius:24px;font:inherit;font-size:14px;cursor:pointer}.consent-reject{color:#eef1f1;background:transparent}.consent-accept{color:#1b292d;background:#b7c4c8}.consent-actions button:hover{filter:brightness(1.1)}
+@media(max-width:650px){.consent-banner{left:12px;right:12px;bottom:12px;display:block;padding:18px}.consent-actions{margin-top:15px}.consent-actions button{flex:1}}

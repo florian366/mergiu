@@ -2,11 +2,66 @@ const menu = document.querySelector('.menu');
 const nav = document.querySelector('.header nav');
 document.querySelectorAll('.logo').forEach((logo) => {
   logo.textContent = '';
-  logo.innerHTML = '<img src="images/logo weiß mergiu.png" alt="MERGIU" style="width:120px;height:auto;display:block">';
+  logo.innerHTML = '<img src="images/logo weiß mergiu.png" alt="MERGIU" style="width:100px;height:auto;display:block">';
 });
 menu?.addEventListener('click', () => nav.classList.toggle('open'));
 const servicesTitle = document.querySelector('.services-title');
 if (servicesTitle) servicesTitle.textContent = 'Branchenübergreifend, international vernetzt';
+const servicesIntro = document.querySelector('.services-intro');
+if (servicesIntro) servicesIntro.textContent = 'Wir initiieren und begleiten Unternehmensnachfolgen sowie Verkaufsprozesse in unterschiedlichen Branchen. Dabei kommt es nicht darauf an, wie groß ein Unternehmen ist, sondern darauf, die richtigen Menschen zusammenzubringen.';
+document.querySelectorAll('.accordion-copy .button').forEach((button) => {
+  button.textContent = 'mehr erfahren ↗';
+});
+const personalSectionLink = document.querySelector('.accordion-item:first-child .accordion-copy .button');
+if (personalSectionLink) personalSectionLink.href = 'persönlich/';
+const servicesSection = document.querySelector('.services');
+const serviceRow = servicesSection?.querySelector('.service-row');
+const serviceCards = [...(serviceRow?.querySelectorAll('.service-card') || [])];
+let serviceSlideTimer;
+let serviceResumeTimer;
+let serviceSectionVisible = false;
+if (servicesSection && serviceRow && serviceCards.length > 1) {
+  const slideToNextService = () => {
+    const currentIndex = serviceCards.reduce((closestIndex, card, index) => {
+      const closestDistance = Math.abs(serviceCards[closestIndex].offsetLeft - serviceRow.scrollLeft);
+      const distance = Math.abs(card.offsetLeft - serviceRow.scrollLeft);
+      return distance < closestDistance ? index : closestIndex;
+    }, 0);
+    const nextIndex = (currentIndex + 1) % serviceCards.length;
+    serviceRow.dataset.autoScrolling = 'true';
+    serviceRow.scrollTo({
+      left: serviceCards[nextIndex].offsetLeft,
+      behavior: 'smooth'
+    });
+    window.setTimeout(() => delete serviceRow.dataset.autoScrolling, 800);
+  };
+  const startServiceSlider = () => {
+    if (!serviceSlideTimer) serviceSlideTimer = window.setInterval(slideToNextService, 2000);
+  };
+  const stopServiceSlider = () => {
+    window.clearInterval(serviceSlideTimer);
+    serviceSlideTimer = undefined;
+  };
+  const pauseForUser = () => {
+    if (serviceRow.dataset.autoScrolling) return;
+    stopServiceSlider();
+    window.clearTimeout(serviceResumeTimer);
+    serviceResumeTimer = window.setTimeout(() => {
+      if (serviceSectionVisible) startServiceSlider();
+    }, 10000);
+  };
+  ['wheel', 'touchstart', 'pointerdown', 'keydown'].forEach((eventName) => {
+    serviceRow.addEventListener(eventName, pauseForUser, { passive: true });
+  });
+  new IntersectionObserver(([entry]) => {
+    serviceSectionVisible = entry.isIntersecting;
+    if (serviceSectionVisible) startServiceSlider();
+    else {
+      stopServiceSlider();
+      window.clearTimeout(serviceResumeTimer);
+    }
+  }, { threshold: 0.35 }).observe(servicesSection);
+}
 
 const hero = document.querySelector('.hero');
 const heroWord = document.querySelector('.hero-word');
@@ -52,6 +107,11 @@ updateScrollWords();
 updateSuccessWords();
 
 const accordionItems = [...document.querySelectorAll('.accordion-item')];
+const accordionLinks = ['persönlich/', 'diskretion/', 'netzwerk/', 'provisionsfrei/', 'persönliche-betreuung/'];
+accordionItems.forEach((item, index) => {
+  const link = item.querySelector('.accordion-copy .button');
+  if (link && accordionLinks[index]) link.href = accordionLinks[index];
+});
 accordionItems[0]?.querySelector('.accordion-tab span')?.replaceChildren('Persönlich');
 accordionItems.forEach((item) => {
   item.querySelector('.accordion-tab')?.addEventListener('click', () => {
@@ -64,6 +124,7 @@ accordionItems.forEach((item) => {
 });
 
 const blogSearch = document.querySelector('.blog-search input');
+blogSearch?.setAttribute('placeholder', 'Inhalte suchen');
 const blogResults = [...document.querySelectorAll('.blog-search-results a')];
 const blogSidebar = document.querySelector('.blog-sidebar');
 if (blogSearch && blogResults.length && blogSidebar) {
