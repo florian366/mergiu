@@ -1,0 +1,4 @@
+.branch-promo-banner{position:sticky;top:0;z-index:4;display:flex;justify-content:center;align-items:center;gap:5px;min-height:48px;padding:9px 5%;background:linear-gradient(100deg,#8b9699,#aeb7b9 52%,#7d898c);color:#fff;text-align:center;font-size:13px;line-height:1.35}
+.branch-promo-banner a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.branch-promo-banner a:hover{opacity:.72}
+@media(max-width:600px){.branch-promo-banner{display:block;padding:9px 6%;font-size:12px}.branch-promo-banner a{display:inline-block;margin-top:2px}}
