@@ -19,7 +19,7 @@
 .intro-side .underlink{display:block;position:relative;width:max-content;font-size:15px;text-decoration:none;margin-top:8px;padding-bottom:0;border-bottom:0}
 .intro-side .underlink::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:1px;background:#cad2d3}
 .intro{min-height:auto;padding-bottom:6vw}
-.services-title{margin-left:0}
+.services-title{margin-left:0;margin-bottom:clamp(32px,4vw,72px)}
 .services{padding-top:clamp(60px,8vw,140px)}
 .services{background:#b7c4c8}
 .services .services-title{color:#1b292d}
