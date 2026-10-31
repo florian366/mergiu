@@ -128,8 +128,9 @@
 .blog-post blockquote{font-size:clamp(20px,1.8vw,29px);margin:34px 0}
 .blog-inline-image{height:clamp(220px,29vw,480px);margin:38px 0}
 .blog-post h3{font-size:clamp(29px,3vw,48px);margin:42px 0 18px}
-.blog-sidebar{position:sticky;top:32px;align-self:start}
+.blog-sidebar{position:sticky;top:90px;align-self:start}
 .blog-sidebar-block{margin-top:48px}.blog-sidebar-block h3{font-size:24px;margin-bottom:20px}.blog-sidebar-block>a:not(.latest-post){font-size:16px;margin:11px 0}.latest-post{grid-template-columns:92px 1fr;gap:14px;margin:20px 0}.latest-thumb{height:86px}.latest-post span:last-child{font-size:15px}.latest-post small{font-size:13px;margin-bottom:6px}
+.blog-sidebar-block:last-child .latest-post:nth-of-type(n+3){display:none}
 @media(max-width:900px){.blog-sidebar{position:static}.blog-hero-image,.blog-inline-image{height:340px}}
 @media(max-width:520px){.blog-hero-image,.blog-inline-image{height:240px}}
 
