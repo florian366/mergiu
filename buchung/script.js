@@ -1,6 +1,5 @@
 const slider = document.querySelector('.slider');
 const slides = [...document.querySelectorAll('.slide')];
-document.querySelector('.rail-logo').innerHTML = '<img src="../images/logo weiß mergiu.png" alt="MERGIU" style="width:42px;height:auto;display:block">';
 slider.style.transition = 'none';
 let current = 0;
 let position = 0;
