@@ -9,6 +9,13 @@ const servicesTitle = document.querySelector('.services-title');
 if (servicesTitle) servicesTitle.textContent = 'Branchenübergreifend, international vernetzt';
 const servicesIntro = document.querySelector('.services-intro');
 if (servicesIntro) servicesIntro.textContent = 'Wir initiieren und begleiten Unternehmensnachfolgen sowie Verkaufsprozesse in unterschiedlichen Branchen. Dabei kommt es nicht darauf an, wie groß ein Unternehmen ist, sondern darauf, die richtigen Menschen zusammenzubringen.';
+const categoryBlock = [...document.querySelectorAll('.blog-sidebar-block')].find((block) => block.querySelector('h3')?.textContent.trim() === 'Kategorien');
+if (categoryBlock && ![...categoryBlock.querySelectorAll('a')].some((link) => link.textContent.trim() === 'Facility Management')) {
+  const facilityLink = document.createElement('a');
+  facilityLink.href = 'category.html?category=Facility%20Management';
+  facilityLink.textContent = 'Facility Management';
+  categoryBlock.append(facilityLink);
+}
 document.querySelectorAll('.accordion-copy .button').forEach((button) => {
   button.textContent = 'mehr erfahren ↗';
 });
@@ -261,7 +268,7 @@ if (blogPost && newestBlogPost.slug === 'unternehmensnachfolge-im-handwerk-worau
     <div class="blog-cta"><strong>Sie möchten Ihren Handwerksbetrieb verkaufen oder einen Nachfolger finden?</strong><span>MERGIU unterstützt Sie dabei, passende Nachfolger, Käufer und Investoren zu identifizieren und persönliche Verbindungen herzustellen.</span><a href="#contact" class="button">Jetzt Unternehmen bei MERGIU registrieren ↗</a></div>`;
 }
 
-const categoryNames = new Set(['Handwerk', 'Tiermedizin', 'Dienstleistungen', 'Einzelhandel', 'Kanzleien']);
+const categoryNames = new Set(['Handwerk', 'Tiermedizin', 'Dienstleistungen', 'Einzelhandel', 'Kanzleien', 'Facility Management']);
 document.querySelectorAll('.blog-sidebar-block a').forEach((link) => {
   const category = link.textContent.trim();
   if (categoryNames.has(category)) link.href = `category.html?category=${encodeURIComponent(category)}`;
