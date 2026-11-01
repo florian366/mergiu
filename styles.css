@@ -70,7 +70,7 @@
 .accordion-tab::before{content:"";position:absolute;top:50px;left:50%;width:44px;height:44px;transform:translateX(-50%) scale(.9);opacity:.72;transition:transform .72s cubic-bezier(.22,1,.36,1),opacity .45s ease;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cpath d='M1 1H43V43M1 43L43 1' fill='none' stroke='%23687579' stroke-width='2'/%3E%3C/svg%3E") center/44px 44px no-repeat}
 .accordion-tab b{position:absolute;left:50%;bottom:8%;font-size:clamp(78px,8vw,154px);font-weight:400;line-height:.8;color:#1e2b30;transform:translateX(-50%);letter-spacing:-.08em}
 .accordion-tab span{position:absolute;left:50%;top:50%;font-size:clamp(25px,2.5vw,48px);line-height:1;white-space:nowrap;writing-mode:vertical-rl;transform:translate(-50%,-50%) rotate(180deg)}
-.accordion-item.selected .accordion-tab{color:#b8c6ca}
+.accordion-item.selected .accordion-tab{color:#b8c6ca}.accordion-item.selected .accordion-tab b{color:#b8c6ca}
 .accordion-item.selected .accordion-tab::before{transform:translateX(-50%) rotate(180deg) scale(.9);opacity:.95}
 .accordion-content{height:100%;width:calc(100% - clamp(88px,10vw,200px));min-width:0;display:flex;flex:0 0 calc(100% - clamp(88px,10vw,200px));opacity:0;transform:translateX(-48px);pointer-events:none;transition:opacity .55s ease .12s,transform .92s cubic-bezier(.22,1,.36,1)}
 .accordion-item.selected .accordion-content{opacity:1;transform:translateX(0);pointer-events:auto}
