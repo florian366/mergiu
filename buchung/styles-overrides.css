@@ -44,3 +44,14 @@
   .faq-arrow::after{top:1px;width:12px;height:12px}
   .faq-answer p{padding:0 42px 24px;font-size:15px}
 }
+
+.network-form-view label:nth-of-type(5){grid-column:1/-1}.network-form-view textarea{display:block;width:100%;min-height:92px;margin-top:5px;resize:vertical;border:1px solid #c9bdb2;background:#ffffff16;color:#fff;padding:10px 11px;font:inherit;font-size:13px;outline:0}.network-form-view textarea::placeholder{color:#d3c9c1}
+
+@media(min-width:901px){
+  .network-card{top:3%;max-height:none;overflow:visible;padding:24px 30px}
+  .network-card h2{margin-bottom:10px}
+  .network-lead{margin-bottom:12px}
+  .network-form-view form{gap:8px 15px}
+  .network-form-view input{padding-top:8px;padding-bottom:8px}
+  .network-form-view textarea{min-height:70px;padding-top:8px;padding-bottom:8px}
+}
