@@ -2,9 +2,45 @@
 .hero-description{display:block;margin-top:20px;max-width:620px;font-size:13px;line-height:1.5;color:#f1eeea}@media(max-width:900px){.hero-description{font-size:12px;margin-top:16px}}
 .split-slide .dark-copy{left:0;right:auto;width:100%;text-align:left}
 
+/* FAQ on the advisor slide. */
+.split-slide{overflow-y:auto;scrollbar-width:thin;scrollbar-color:#fff3 transparent}
+.split-slide .dark-copy{position:relative;min-height:100%;padding:clamp(72px,10vh,150px) 7% 8vh;background:#222f33}
+.split-slide .dark-copy h2{max-width:1050px;margin:0 auto clamp(55px,8vh,110px);font-size:clamp(42px,5.1vw,88px);font-weight:300;line-height:1.06;letter-spacing:-.055em;color:#fff}
+.faq-section{max-width:1350px;margin:0 auto;color:#fff}
+.faq-list{border-top:1px solid rgba(255,255,255,.85)}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.85)}
+.faq-item h3{margin:0}
+.faq-question{display:grid;grid-template-columns:66px 1fr 34px;align-items:center;gap:0;width:100%;padding:25px 0;border:0;background:transparent;color:#fff;cursor:pointer;text-align:left;font:inherit;font-size:clamp(18px,1.7vw,30px);font-weight:300;line-height:1.2}
+.faq-question:focus-visible{outline:1px solid #fff;outline-offset:5px}
+.faq-number{font-size:.52em;align-self:start;padding-top:.2em;letter-spacing:.04em}
+.faq-arrow{position:relative;width:30px;height:30px;justify-self:end;transform:rotate(0deg);transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.faq-arrow::before{content:"";position:absolute;left:50%;top:0;width:1.5px;height:20px;background:#fff;transform:translateX(-50%)}
+.faq-arrow::after{content:"";position:absolute;left:50%;top:12px;width:15px;height:15px;border-right:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:translateX(-50%) rotate(45deg)}
+.faq-item.is-open .faq-arrow{transform:rotate(180deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .55s cubic-bezier(.22,1,.36,1)}
+.faq-answer p{max-width:850px;margin:0;padding:0 66px 28px;font-size:clamp(15px,1.2vw,20px);line-height:1.55;color:rgba(255,255,255,.88)}
+
 /* Keep the wordmark horizontal inside the vertical rail. */
 .rail-logo{display:block;width:52px;margin-top:45px;transform:none;writing-mode:initial}
 .rail-logo img{display:block;width:100%;height:auto}
 .rail-mark{top:auto;bottom:24px;display:flex;align-items:center;justify-content:center}
 .rail-mark img{display:block;width:42px;height:42px;object-fit:contain}
 .rail p{max-width:80px;margin:0;text-align:left}
+
+@media(min-width:901px){
+  .image-copy-slide .dark-copy{width:40%}
+  .image-copy-slide .mentor-image{width:60%}
+  .topics-slide .topic-grid{width:100%;grid-template-columns:45% 55%;border-left:1px solid #536166}
+  .topics-slide .topic-grid article{border-right:1px solid #536166}
+}
+
+@media(max-width:900px){
+  .split-slide{overflow-y:auto}
+  .split-slide .dark-copy{padding:18vh 8% 9vh}
+  .split-slide .dark-copy h2{font-size:clamp(42px,10vw,72px);margin-bottom:58px}
+  .faq-question{grid-template-columns:42px 1fr 25px;padding:21px 0;font-size:clamp(18px,4.2vw,26px)}
+  .faq-arrow{width:24px;height:24px}
+  .faq-arrow::before{height:16px}
+  .faq-arrow::after{top:10px;width:12px;height:12px}
+  .faq-answer p{padding:0 42px 24px;font-size:15px}
+}

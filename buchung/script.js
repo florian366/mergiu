@@ -52,6 +52,15 @@ document.querySelectorAll('a[href^="#slide-"]').forEach((link) => link.addEventL
   goTo(Number(link.getAttribute('href').replace('#slide-', '')) - 1);
 }));
 
+document.querySelectorAll('.faq-question').forEach((question) => question.addEventListener('click', () => {
+  const answer = document.getElementById(question.getAttribute('aria-controls'));
+  const item = question.closest('.faq-item');
+  const isOpen = question.getAttribute('aria-expanded') === 'true';
+  question.setAttribute('aria-expanded', String(!isOpen));
+  item.classList.toggle('is-open', !isOpen);
+  answer.style.maxHeight = isOpen ? '0px' : `${answer.scrollHeight}px`;
+}));
+
 const networkForm = document.querySelector('#network-form');
 const networkFormView = document.querySelector('.network-form-view');
 const networkConfirmation = document.querySelector('.network-confirmation');
