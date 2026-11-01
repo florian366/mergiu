@@ -83,7 +83,7 @@
 .image-branding{background-image:url('images/Vertraulichkeit.jpg')}
 .image-marketing{background-image:url('images/Netzwerk.jpg')}
 .image-planning{background-image:url('images/provisionsfrei.jpg')}
-.image-support{background-image:url('images/persönliche betreeung.jpg')}
+.image-support{background-image:url('images/persönliche Betreuung.jpg')}
 .success-overlay h2{font-size:clamp(42px,4vw,72px)}
 .accordion-item:not(.selected) .accordion-content{display:none}
 .accordion-item:not(.selected) .accordion-tab:hover{color:#b8c6ca}
