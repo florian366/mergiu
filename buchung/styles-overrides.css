@@ -15,7 +15,7 @@
 .faq-number{font-size:.52em;align-self:start;padding-top:.2em;letter-spacing:.04em}
 .faq-arrow{position:relative;width:30px;height:30px;justify-self:end;transform:rotate(0deg);transition:transform .45s cubic-bezier(.22,1,.36,1)}
 .faq-arrow::before{content:"";position:absolute;left:50%;top:0;width:1.5px;height:20px;background:#fff;transform:translateX(-50%)}
-.faq-arrow::after{content:"";position:absolute;left:50%;top:12px;width:15px;height:15px;border-right:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:translateX(-50%) rotate(45deg)}
+.faq-arrow::after{content:"";position:absolute;left:50%;top:2px;width:15px;height:15px;border-right:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:translateX(-50%) rotate(45deg)}
 .faq-item.is-open .faq-arrow{transform:rotate(180deg)}
 .faq-answer{max-height:0;overflow:hidden;transition:max-height .55s cubic-bezier(.22,1,.36,1)}
 .faq-answer p{max-width:850px;margin:0;padding:0 66px 28px;font-size:clamp(15px,1.2vw,20px);line-height:1.55;color:rgba(255,255,255,.88)}
@@ -41,6 +41,6 @@
   .faq-question{grid-template-columns:42px 1fr 25px;padding:21px 0;font-size:clamp(18px,4.2vw,26px)}
   .faq-arrow{width:24px;height:24px}
   .faq-arrow::before{height:16px}
-  .faq-arrow::after{top:10px;width:12px;height:12px}
+  .faq-arrow::after{top:1px;width:12px;height:12px}
   .faq-answer p{padding:0 42px 24px;font-size:15px}
 }
