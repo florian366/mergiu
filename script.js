@@ -21,6 +21,16 @@ document.querySelectorAll('.accordion-copy .button').forEach((button) => {
 });
 const personalSectionLink = document.querySelector('.accordion-item:first-child .accordion-copy .button');
 if (personalSectionLink) personalSectionLink.href = 'persönlich/';
+const accordionTitles = [
+  'Menschlichkeit',
+  'Diskretion',
+  'Netzwerk',
+  'Keine Verkaufsprovision',
+  'Persönliche Betreuung'
+];
+document.querySelectorAll('.accordion-tab span').forEach((title, index) => {
+  if (accordionTitles[index]) title.textContent = accordionTitles[index];
+});
 const servicesSection = document.querySelector('.services');
 const serviceRow = servicesSection?.querySelector('.service-row');
 const serviceCards = [...(serviceRow?.querySelectorAll('.service-card') || [])];
@@ -80,7 +90,7 @@ let ticking = false;
 const updateScrollWords = () => {
   if (!introSection || !scrollWords.length) return;
   const start = introSection.offsetTop - window.innerHeight * 0.72;
-  const end = introSection.offsetTop + introSection.offsetHeight * 0.35;
+  const end = introSection.offsetTop;
   const progress = Math.min(1, Math.max(0, (window.scrollY - start) / (end - start)));
   const visibleWords = Math.floor(progress * (scrollWords.length + 1));
   scrollWords.forEach((word, index) => word.classList.toggle('is-light', index < visibleWords));
@@ -119,7 +129,6 @@ accordionItems.forEach((item, index) => {
   const link = item.querySelector('.accordion-copy .button');
   if (link && accordionLinks[index]) link.href = accordionLinks[index];
 });
-accordionItems[0]?.querySelector('.accordion-tab span')?.replaceChildren('Persönlich');
 accordionItems.forEach((item) => {
   item.querySelector('.accordion-tab')?.addEventListener('click', () => {
     accordionItems.forEach((panel) => {
