@@ -28,8 +28,8 @@
 .rail p{max-width:80px;margin:0;text-align:left}
 
 @media(min-width:901px){
-  .image-copy-slide .dark-copy{width:40%}
-  .image-copy-slide .mentor-image{width:60%}
+  .image-copy-slide .dark-copy{width:55%}
+  .image-copy-slide .mentor-image{width:45%}
   .topics-slide .topic-grid{width:100%;grid-template-columns:45% 55%;border-left:1px solid #536166}
   .topics-slide .topic-grid article{border-right:1px solid #536166}
 }
@@ -55,3 +55,5 @@
   .network-form-view input{padding-top:8px;padding-bottom:8px}
   .network-form-view textarea{min-height:70px;padding-top:8px;padding-bottom:8px}
 }
+
+.image-copy-slide .dark-copy h2{max-width:none;font-size:clamp(42px,4.4vw,72px)}
