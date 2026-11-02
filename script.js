@@ -165,6 +165,13 @@ if (blogSearch && blogResults.length && blogSidebar) {
 // The newest entry is used as the main article. Add future posts to this list.
 const blogPosts = [
   {
+    slug: 'handwerksbetrieb-verkaufen-nachfolger-finden',
+    title: 'Handwerksbetrieb verkaufen: So finden Sie einen passenden Nachfolger',
+    date: '2026-11-02',
+    label: 'Handwerk, Unternehmensnachfolge',
+    image: 'images/Handwerksbetrieb verkaufen.jpg'
+  },
+  {
     slug: 'unternehmensnachfolge-im-handwerk-worauf-betriebsinhaber-achten-sollten-und-wie-sie-einen-passenden-nachfolger-finden',
     title: 'Unternehmensnachfolge im Handwerk: Worauf Betriebsinhaber achten sollten und wie Sie einen passenden Nachfolger finden',
     date: '2026-10-28',
@@ -220,6 +227,16 @@ if (blogPost && newestBlogPost) {
   if (hero) hero.style.backgroundImage = `url("${newestBlogPost.image}")`;
   if (title) title.textContent = newestBlogPost.title;
   if (meta) meta.innerHTML = `${new Date(newestBlogPost.date).toLocaleDateString('de-DE', { day: '2-digit', month: 'short' })} <span>|</span> ${newestBlogPost.label}`;
+}
+
+if (blogPost && newestBlogPost.slug === 'handwerksbetrieb-verkaufen-nachfolger-finden') {
+  blogPost.innerHTML = `
+    <div class="blog-hero-image" style="background-image:url('${newestBlogPost.image}')"></div>
+    <div class="blog-meta">02. Nov <span>|</span> Handwerk, Unternehmensnachfolge</div>
+    <h2>${newestBlogPost.title}</h2>
+    <p>Der Verkauf eines Handwerksbetriebs ist eine wichtige Entscheidung. Kundenbeziehungen, Mitarbeiter und gewachsene Strukturen sollen in gute Hände übergehen.</p>
+    <p>Erfahren Sie, welche Käufergruppen infrage kommen, wie Sie den Unternehmenswert einschätzen und wie Sie die Nachfolgesuche frühzeitig vorbereiten.</p>
+    <a class="button" href="handwerksbetrieb-verkaufen-nachfolger-finden/">Beitrag lesen ↗</a>`;
 }
 
 if (blogPost && newestBlogPost.slug === 'unternehmensnachfolge-im-handwerk-worauf-betriebsinhaber-achten-sollten-und-wie-sie-einen-passenden-nachfolger-finden') {
