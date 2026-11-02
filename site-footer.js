@@ -21,7 +21,7 @@
       <div class="site-footer-intro">
         <a class="site-footer-logo" href="${root}index.html"><img src="${root}images/logo weiß mergiu.png" alt="MERGIU"></a>
         <p>Persönlich, diskret und branchenübergreifend vernetzt.</p>
-        <a class="site-footer-cta" href="${root}index.html#contact">Unternehmen verkaufen <span aria-hidden="true">↗</span></a>
+        <a class="site-footer-cta" href="https://mergiu.com/buchung/">Unternehmen verkaufen <span aria-hidden="true">↗</span></a>
       </div>
       <nav class="site-footer-column" aria-label="Branchen">
         <h2>Branchen</h2>
@@ -38,6 +38,10 @@
       <div><a href="${root}datenschutz.html">Datenschutz</a><a href="${root}impressum.html">Impressum</a></div>
     </div>`;
   document.body.appendChild(element);
+
+  document.querySelectorAll('a[href*="#contact"], a[href*="#kontakt"]').forEach((link) => {
+    link.href = 'https://mergiu.com/buchung/';
+  });
 
   const stylesheet = document.createElement('link');
   stylesheet.rel = 'stylesheet';
