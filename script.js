@@ -178,27 +178,6 @@ const blogPosts = [
     label: 'Handwerk, Unternehmensnachfolge',
     image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=85'
   },
-  {
-    slug: 'aktuelle-nachrichten-aus-der-wirtschaft',
-    title: 'Aktuelle Nachrichten aus der Wirtschaft',
-    date: '2026-02-06',
-    label: 'Investment, Forschung',
-    image: 'https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1800&q=85'
-  },
-  {
-    slug: 'besseren-service-fuer-kunden-schaffen',
-    title: 'Besseren Service für Kunden schaffen',
-    date: '2026-02-05',
-    label: 'Dienstleistungen',
-    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1800&q=85'
-  },
-  {
-    slug: 'geschaeftsplanung-und-strategie',
-    title: 'Geschäftsplanung und Strategie',
-    date: '2026-02-04',
-    label: 'Unternehmen',
-    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1800&q=85'
-  }
 ];
 const postUrl = (post) => `${post.slug}/`;
 const postByTitle = new Map(blogPosts.map((post) => [post.title, post]));
@@ -207,18 +186,17 @@ document.querySelectorAll('.blog-sidebar a, .blog-search-results a').forEach((li
   if (post) link.href = postUrl(post);
 });
 const handwerkSearchResult = document.querySelector('.blog-search-results');
-const handwerkPostLink = document.createElement('a');
 if (handwerkSearchResult) {
-  handwerkPostLink.href = postUrl(blogPosts[0]);
-  handwerkPostLink.dataset.blogTitle = blogPosts[0].title;
-  handwerkPostLink.textContent = blogPosts[0].title;
-  handwerkSearchResult.prepend(handwerkPostLink);
-  handwerkPostLink.addEventListener('click', (event) => {
-    if (blogSearch) blogSearch.value = handwerkPostLink.dataset.blogTitle;
-    blogSidebar?.classList.remove('search-open');
-  });
+  handwerkSearchResult.innerHTML = blogPosts.map((post) => `<a href="${postUrl(post)}" data-blog-title="${post.title}">${post.title}</a>`).join('');
 }
 const newestBlogPost = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+const sortedBlogPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
+const morePostsBlock = [...document.querySelectorAll('.blog-sidebar-block')].find((block) => block.querySelector('h3')?.textContent.trim() === 'Weitere Beiträge');
+if (morePostsBlock) {
+  const morePosts = sortedBlogPosts.slice(1, 3);
+  const previewTitle = (title) => title.length > 55 ? `${title.slice(0, 52).trimEnd()}...` : title;
+  morePostsBlock.innerHTML = `<h3>Weitere Beiträge</h3>${morePosts.map((post) => `<a class="latest-post" href="${postUrl(post)}"><span class="latest-thumb" style="background-image:url('${post.image}')"></span><span><small>${new Date(post.date).toLocaleDateString('de-DE', { day: '2-digit', month: 'short' })}</small>${previewTitle(post.title)}</span></a>`).join('')}`;
+}
 const blogPost = document.querySelector('.blog-post');
 if (blogPost && newestBlogPost) {
   const hero = blogPost.querySelector('.blog-hero-image');
