@@ -39,6 +39,12 @@
     </div>`;
   document.body.appendChild(element);
 
+  const favicon = document.querySelector('link[rel="icon"]') || document.createElement('link');
+  favicon.rel = 'icon';
+  favicon.type = 'image/svg+xml';
+  favicon.href = `${root}images/mergiu-favicon.svg`;
+  document.head.appendChild(favicon);
+
   document.querySelectorAll('a[href*="#contact"], a[href*="#kontakt"]').forEach((link) => {
     link.href = 'https://mergiu.com/buchung/';
   });
