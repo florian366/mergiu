@@ -59,7 +59,7 @@
 .image-copy-slide .dark-copy h2{max-width:none;font-size:clamp(42px,4.4vw,72px)}
 
 /* Garantie-Banner in der freien Fläche oberhalb der Hero-Headline. */
-.hero-slide::after{content:"";position:absolute;z-index:1;left:14%;top:11%;width:min(22%,400px);aspect-ratio:4 / 1;background:url("../images/geld zurück Garantie Banner2.png?v=2") center/contain no-repeat;pointer-events:none}
+.hero-slide::after{content:"";position:absolute;z-index:1;left:14%;top:11%;width:min(22%,400px);aspect-ratio:4 / 1;background:url("../images/geld-zurueck-garantie-banner.png?v=2") center/contain no-repeat;pointer-events:none}
 @media(max-width:900px){.hero-slide::after{left:8%;top:10vh;width:84%;max-width:none}}
 
 /* Registration details precede the form and require an explicit confirmation. */
