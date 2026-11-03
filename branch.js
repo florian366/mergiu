@@ -16,6 +16,11 @@ promoStyles.rel = 'stylesheet';
 promoStyles.href = '../branch-promo.css';
 document.head.appendChild(promoStyles);
 
+const mobileStyles = document.createElement('link');
+mobileStyles.rel = 'stylesheet';
+mobileStyles.href = '../tiermedizin/mobile.css';
+document.head.appendChild(mobileStyles);
+
 const branchPromo = document.createElement('div');
 branchPromo.className = 'branch-promo-banner';
 branchPromo.innerHTML = '<span>Sparen Sie sich 20.000€+ für die Provision einer gewöhnlichen Nachfolgesuche. Jetzt bei </span><a href="../seminar-home/">MERGIU registrieren</a><span> &amp; provisionsfrei Nachfolger finden.</span>';

@@ -42,6 +42,15 @@ window.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowLeft' || event.key === 'PageUp') goTo(nearestPanel - 1);
 });
 window.addEventListener('resize', () => {
+  if (window.innerWidth <= 900) {
+    current = 0;
+    position = 0;
+    target = 0;
+    cancelAnimationFrame(animationFrame);
+    animationFrame = null;
+    slider.style.transform = 'none';
+    return;
+  }
   position = current * panelWidth();
   target = position;
   slider.style.transform = `translate3d(${-position}px, 0, 0)`;

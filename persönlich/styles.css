@@ -7,3 +7,11 @@
 .blog-heading h2 span{color:var(--accent)}
 .page-secondary .page-header nav a.active{display:none}
 .hero-persoenlich{background-image:linear-gradient(90deg,rgba(15,25,28,.83),rgba(15,25,28,.16)),url('../images/:persönlich.jpg')}.page-diskretion .hero-image{background-image:linear-gradient(90deg,rgba(15,25,28,.83),rgba(15,25,28,.16)),url('../images/:diskretion.jpg')}.page-netzwerk .hero-image{background-image:linear-gradient(90deg,rgba(15,25,28,.83),rgba(15,25,28,.16)),url('../images/:netzwerk.jpg')}.page-provisionsfrei .hero-image{background-image:linear-gradient(90deg,rgba(15,25,28,.83),rgba(15,25,28,.16)),url('../images/:provisionsfrei.jpg')}.page-betreuung .hero-image{background-image:linear-gradient(90deg,rgba(15,25,28,.83),rgba(15,25,28,.16)),url('../images/persönliche Betreuung.jpg')}
+
+@media(max-width:600px){
+  .personal-hero{height:auto;min-height:100svh}
+  .hero-content{left:7%;right:7%;bottom:9%;max-width:none}
+  .hero-content h1{font-size:clamp(40px,11vw,52px)}
+  .hero-lead{font-size:16px}
+  .principle-card,.blog-card{min-width:0}
+}

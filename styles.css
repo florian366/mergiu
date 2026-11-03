@@ -98,7 +98,32 @@
   .accordion-content,.accordion-item.selected .accordion-content{width:100%;height:auto;display:flex;flex-direction:column;transform:none;opacity:1;padding:0 0 35px}
   .accordion-copy,.accordion-image{width:100%}
   .accordion-copy{padding:30px 0}
-  .accordion-image{height:400px;order:2}
+.accordion-image{height:400px;order:2}
+
+/* Mobile presents the process as a compact, touch-friendly accordion. */
+@media(max-width:900px){
+  .accordion-section{min-height:auto}
+  .accordion-item,.accordion-item.selected{min-height:0}
+  .accordion-tab,.accordion-item.selected .accordion-tab{position:relative;display:flex;align-items:center;min-height:74px;padding:16px 42px 16px 12px}
+  .accordion-tab b{flex:0 0 auto;margin-right:18px}
+  .accordion-tab span{font-size:clamp(21px,6vw,25px);line-height:1.15}
+  .accordion-tab::after{content:"+";position:absolute;right:12px;top:50%;font-size:29px;font-weight:300;line-height:1;transform:translateY(-53%);transition:transform .25s ease}
+  .accordion-item.selected .accordion-tab::after{content:"-"}
+  .accordion-item:not(.selected) .accordion-content{display:none}
+  .accordion-item.selected .accordion-content{display:flex;padding:0 0 35px;opacity:1;pointer-events:auto}
+  .accordion-copy{padding:26px 0 22px}
+  .accordion-copy p{font-size:clamp(23px,6.5vw,30px)}
+  .accordion-copy small{font-size:16px}
+  .accordion-copy .button{margin-top:26px}
+  .accordion-image{height:clamp(240px,68vw,400px)}
+}
+
+/* Make the horizontal industry list intentional instead of visually clipped. */
+@media(max-width:520px){
+  .services .service-row{width:calc(100% + 6vw);margin-right:-6vw;padding:0 6vw 20px 0;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}
+  .services .service-card{flex:0 0 78%;min-width:78%;scroll-snap-align:start;scroll-snap-stop:always}
+  .services .service-row::after{content:"";flex:0 0 1px}
+}
 }
 
 /* Local, resized asset keeps the full-width section sharp without loading the original 3600px image. */

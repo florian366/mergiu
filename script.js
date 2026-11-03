@@ -37,6 +37,7 @@ const serviceCards = [...(serviceRow?.querySelectorAll('.service-card') || [])];
 let serviceSlideTimer;
 let serviceResumeTimer;
 let serviceSectionVisible = false;
+const serviceAutoRotation = window.matchMedia('(min-width: 521px)');
 if (servicesSection && serviceRow && serviceCards.length > 1) {
   const slideToNextService = () => {
     const currentIndex = serviceCards.reduce((closestIndex, card, index) => {
@@ -53,7 +54,7 @@ if (servicesSection && serviceRow && serviceCards.length > 1) {
     window.setTimeout(() => delete serviceRow.dataset.autoScrolling, 800);
   };
   const startServiceSlider = () => {
-    if (!serviceSlideTimer) serviceSlideTimer = window.setInterval(slideToNextService, 2000);
+    if (serviceAutoRotation.matches && !serviceSlideTimer) serviceSlideTimer = window.setInterval(slideToNextService, 2000);
   };
   const stopServiceSlider = () => {
     window.clearInterval(serviceSlideTimer);
@@ -78,6 +79,10 @@ if (servicesSection && serviceRow && serviceCards.length > 1) {
       window.clearTimeout(serviceResumeTimer);
     }
   }, { threshold: 0.35 }).observe(servicesSection);
+  serviceAutoRotation.addEventListener('change', () => {
+    stopServiceSlider();
+    if (serviceAutoRotation.matches && serviceSectionVisible) startServiceSlider();
+  });
 }
 
 const hero = document.querySelector('.hero');

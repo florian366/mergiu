@@ -1,0 +1,20 @@
+@media(max-width:600px){
+  .hero{height:auto;min-height:100svh;padding:118px 0 56px;align-items:flex-start}
+  .hero-copy{width:auto;margin:0 7%}
+  .hero h1{font-size:clamp(42px,12vw,58px)}
+  .hero-copy>p:not(.eyebrow){font-size:19px}
+  .hero-scroll{display:none}
+  .intro,.large-practices{padding:78px 7%}
+  .split-story{grid-template-columns:1fr}
+  .story-content{padding:62px 7%}
+  .story-image{min-height:280px}
+  .process{padding:78px 7%}
+  .process-heading{display:block}
+  .process-heading .button{margin-top:26px}
+  .steps{grid-template-columns:1fr;gap:0}
+  .steps article{padding:24px 0;border-top:1px solid var(--line)}
+  .steps article:last-child{border-bottom:1px solid var(--line)}
+  .steps h3{font-size:21px}
+  .steps p{font-size:16px}
+  .benefits,.faq,.contact-cta{padding-left:7%;padding-right:7%}
+}

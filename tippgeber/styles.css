@@ -17,3 +17,5 @@
 .tip-form .tip-button{padding:11px 18px;font-size:14px}
 .tip-form-note{font-size:12px}
 @media(max-width:600px){.tip-form-section{padding-top:65px;padding-bottom:65px}.tip-form-intro h2{font-size:40px}}
+
+@media(max-width:600px){.tip-hero{min-height:100svh;height:auto}}
