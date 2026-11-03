@@ -1,4 +1,18 @@
 {
+  "rewrites": [
+    {
+      "source": "/en/:path*",
+      "destination": "/:path*"
+    },
+    {
+      "source": "/fr/:path*",
+      "destination": "/:path*"
+    },
+    {
+      "source": "/es/:path*",
+      "destination": "/:path*"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

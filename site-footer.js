@@ -61,4 +61,12 @@
   stylesheet.rel = 'stylesheet';
   stylesheet.href = `${root}footer.css`;
   document.head.appendChild(stylesheet);
+
+  const locale = window.location.pathname.split('/')[1];
+  if (['en', 'fr', 'es'].includes(locale)) {
+    const translations = document.createElement('script');
+    translations.src = '/i18n.js';
+    translations.defer = true;
+    document.head.appendChild(translations);
+  }
 })();
