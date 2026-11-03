@@ -35,7 +35,7 @@
     </div>
     <div class="site-footer-bottom">
       <span>© 2026 MERGIU</span>
-      <div><a href="${root}datenschutz.html">Datenschutz</a><a href="${root}impressum.html">Impressum</a></div>
+      <div><a href="${root}datenschutz.html">Datenschutz</a><a href="${root}agb.html">AGB</a><a href="${root}impressum.html">Impressum</a></div>
     </div>`;
   document.body.appendChild(element);
 

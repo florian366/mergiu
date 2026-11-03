@@ -62,16 +62,22 @@ document.querySelectorAll('.faq-question').forEach((question) => question.addEve
 }));
 
 const networkForm = document.querySelector('#network-form');
+const networkIntroView = document.querySelector('.network-intro-view');
 const networkFormView = document.querySelector('.network-form-view');
 const networkConfirmation = document.querySelector('.network-confirmation');
-networkFormView?.querySelector('.eyebrow')?.remove();
-const networkLead = document.querySelector('.network-lead');
-if (networkLead) {
-  const personalIntro = document.createElement('p');
-  personalIntro.className = 'network-lead';
-  personalIntro.textContent = 'Wir kontaktieren Sie persönlich und schauen in unserem Netzwerk nach dem passenden Nachfolger für Ihr Unternehmen und stellen den Kontakt her.';
-  networkLead.before(personalIntro);
-}
+const networkConsent = document.querySelector('#network-consent');
+const openNetworkForm = document.querySelector('#open-network-form');
+
+networkConsent?.addEventListener('change', () => {
+  openNetworkForm.disabled = !networkConsent.checked;
+});
+
+openNetworkForm?.addEventListener('click', () => {
+  networkIntroView.hidden = true;
+  networkFormView.hidden = false;
+  networkFormView.querySelector('input')?.focus();
+});
+
 networkForm?.addEventListener('submit', (event) => {
   event.preventDefault();
   networkFormView.hidden = true;
