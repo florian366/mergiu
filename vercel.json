@@ -1,4 +1,26 @@
 {
+  "redirects": [
+    { "source": "/", "destination": "/de/", "permanent": true },
+    { "source": "/handwerk/", "destination": "/de/handwerk/", "permanent": true },
+    { "source": "/tiermedizin/", "destination": "/de/tiermedizin/", "permanent": true },
+    { "source": "/kanzleien/", "destination": "/de/kanzleien/", "permanent": true },
+    { "source": "/facility-management/", "destination": "/de/facility-management/", "permanent": true },
+    { "source": "/einzelhandel/", "destination": "/de/einzelhandel/", "permanent": true },
+    { "source": "/dienstleistungen/", "destination": "/de/dienstleistungen/", "permanent": true },
+    { "source": "/persönlich/", "destination": "/de/persoenlich/", "permanent": true },
+    { "source": "/diskretion/", "destination": "/de/diskretion/", "permanent": true },
+    { "source": "/netzwerk/", "destination": "/de/netzwerk/", "permanent": true },
+    { "source": "/provisionsfrei/", "destination": "/de/provisionsfrei/", "permanent": true },
+    { "source": "/persönliche-betreuung/", "destination": "/de/persoenliche-betreuung/", "permanent": true },
+    { "source": "/buchung/", "destination": "/de/buchung/", "permanent": true },
+    { "source": "/tippgeber/", "destination": "/de/tippgeber/", "permanent": true },
+    { "source": "/category.html", "destination": "/de/category/", "permanent": true },
+    { "source": "/handwerksbetrieb-verkaufen-nachfolger-finden/", "destination": "/de/handwerksbetrieb-verkaufen-nachfolger-finden/", "permanent": true },
+    { "source": "/unternehmensnachfolge-im-handwerk-worauf-betriebsinhaber-achten-sollten-und-wie-sie-einen-passenden-nachfolger-finden/", "destination": "/de/unternehmensnachfolge-im-handwerk-worauf-betriebsinhaber-achten-sollten-und-wie-sie-einen-passenden-nachfolger-finden/", "permanent": true },
+    { "source": "/agb.html", "destination": "/de/agb/", "permanent": true },
+    { "source": "/datenschutz.html", "destination": "/de/datenschutz/", "permanent": true },
+    { "source": "/impressum.html", "destination": "/de/impressum/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",

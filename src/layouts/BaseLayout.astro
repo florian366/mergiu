@@ -1,0 +1,29 @@
+---
+import '../styles/global.css';
+import { copy, languages, languageNames, type Language } from '../data/site';
+const { lang, title, description, slug = '' } = Astro.props as { lang: Language; title: string; description: string; slug?: string };
+const t = copy[lang];
+const pathFor = (locale: Language) => `/${locale}/${slug ? `${slug}/` : ''}`;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | MERGIU</title>
+    <meta name="description" content={description} />
+    {languages.map((locale) => <link rel="alternate" hreflang={locale} href={new URL(pathFor(locale), Astro.site)} />)}
+    <link rel="alternate" hreflang="x-default" href={new URL(pathFor('de'), Astro.site)} />
+    <link rel="canonical" href={new URL(pathFor(lang), Astro.site)} />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href={`/${lang}/`}>MERGIU</a>
+      <nav aria-label="Primary navigation"><a href={`/${lang}/`}>{t.nav.home}</a><a href={`/${lang}/#industries`}>{t.nav.industries}</a><a href={`/${lang}/#insights`}>{t.nav.insights}</a></nav>
+      <a class="header-cta" href={`/${lang}/buchung/`}>{t.nav.booking}</a>
+      <details class="language-select"><summary>{t.nav.language}</summary><div>{languages.map((locale) => <a href={pathFor(locale)} aria-current={locale === lang ? 'true' : undefined}>{languageNames[locale]}</a>)}</div></details>
+    </header>
+    <slot />
+    <footer class="site-footer"><div><a class="brand" href={`/${lang}/`}>MERGIU</a><p class="muted">{t.footer.lead}</p></div><nav><a href={`/${lang}/datenschutz/`}>{t.footer.privacy}</a><a href={`/${lang}/agb/`}>{t.footer.terms}</a><a href={`/${lang}/impressum/`}>{t.footer.imprint}</a></nav></footer>
+  </body>
+</html>
