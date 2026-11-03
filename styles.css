@@ -255,3 +255,5 @@
 @media(max-width:520px){.hero-note{top:60%}}
 
 @media(max-width:520px){.scroll{bottom:13%}}
+
+.mobile-nav-link{display:none}@media(max-width:900px){.header nav.open .mobile-nav-link{display:block}}
