@@ -247,3 +247,11 @@
 .blog-detail-page footer{background:#1b292d}
 @media(max-width:900px){.blog-detail-page .header{width:calc(100% - 40px)}.blog-detail-page .header nav{gap:22px;margin-right:20px}.blog-detail-page .blog-detail-hero{padding-top:76px}.blog-detail-page .blog-detail-content p,.blog-detail-page .blog-detail-content li{font-size:17px}}
 @media(max-width:620px){.blog-detail-page .header{height:74px;width:calc(100% - 32px)}.blog-detail-page .header nav,.blog-detail-page .contact-pill{display:none}.blog-detail-page .menu{display:block;background:transparent;border:0}.blog-detail-page .menu i{display:block;width:25px;border-top:1px solid #252d31;margin:6px}.blog-detail-page main{padding:0 18px 80px}.blog-detail-page .blog-detail-hero{padding:60px 0 34px}.blog-detail-page .blog-detail-hero span{font-size:11px}.blog-detail-page .blog-detail-hero h1{font-size:clamp(42px,12vw,62px)}.blog-detail-page .blog-detail-content .blog-hero-image{aspect-ratio:1800 / 700;margin-bottom:42px}.blog-detail-page .blog-detail-content p,.blog-detail-page .blog-detail-content li{font-size:16px;line-height:1.7}.blog-detail-page .blog-detail-content h2{margin-top:54px}.blog-detail-page .blog-detail-content .blog-cta{margin:52px 0;padding:24px}}
+
+@media(max-width:900px){.stats,.accordion-section{display:none}}
+
+@media(max-width:900px){.hero-visual{left:0;right:0}.hero-word{width:100%;font-size:clamp(96px,27vw,300px);letter-spacing:-.1em}}
+
+@media(max-width:520px){.hero-note{top:60%}}
+
+@media(max-width:520px){.scroll{bottom:13%}}
