@@ -124,6 +124,23 @@
   .services .service-card{flex:0 0 78%;min-width:78%;scroll-snap-align:start;scroll-snap-stop:always}
   .services .service-row::after{content:"";flex:0 0 1px}
 }
+
+/* Phones show every value as a self-contained card instead of an accordion. */
+@media(max-width:600px){
+  .accordion-section{padding:48px 6%;background:#26353a}
+  .accordion-layout{display:grid;gap:16px}
+  .accordion-item,.accordion-item.selected{display:block;border:1px solid #687579;background:#203035}
+  .accordion-tab,.accordion-item.selected .accordion-tab{height:auto;min-height:0;padding:22px 22px 0;cursor:default}
+  .accordion-tab::after{display:none}
+  .accordion-tab b{font-size:17px;color:#8c9a9e}
+  .accordion-tab span{font-size:clamp(26px,8vw,34px);color:#c5d0d2}
+  .accordion-content,.accordion-item.selected .accordion-content{display:block;padding:0 22px 26px;opacity:1;pointer-events:auto}
+  .accordion-copy{display:block;width:100%;padding:22px 0 0}
+  .accordion-copy p{font-size:clamp(22px,6.5vw,28px);line-height:1.15}
+  .accordion-copy small{font-size:16px;line-height:1.55}
+  .accordion-copy .button{margin-top:22px}
+  .accordion-image{display:none}
+}
 }
 
 /* Local, resized asset keeps the full-width section sharp without loading the original 3600px image. */

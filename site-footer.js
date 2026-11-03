@@ -49,6 +49,14 @@
     link.href = 'https://mergiu.com/buchung/';
   });
 
+  // Force text presentation so iOS does not render the CTA arrow as a colored emoji.
+  const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const arrowTextNodes = [];
+  while (textWalker.nextNode()) arrowTextNodes.push(textWalker.currentNode);
+  arrowTextNodes.forEach((node) => {
+    node.nodeValue = node.nodeValue.replaceAll('↗', '↗\uFE0E');
+  });
+
   const stylesheet = document.createElement('link');
   stylesheet.rel = 'stylesheet';
   stylesheet.href = `${root}footer.css`;

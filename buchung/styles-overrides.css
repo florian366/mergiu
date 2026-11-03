@@ -79,3 +79,13 @@
   .image-copy-slide .mentor-image{position:relative;inset:auto;order:2;width:100%;height:58vw;min-height:260px}
   .image-copy-slide .dark-copy{position:relative;order:1;width:100%;min-height:0;padding:78px 8%}
 }
+
+@media(max-width:600px){
+  .hero-content{padding:23vh 7% 0}
+  .hero-content h1,.split-slide .dark-copy h2,.image-copy-slide .dark-copy h2{max-width:100%;font-size:clamp(34px,10vw,48px);letter-spacing:-.045em;overflow-wrap:anywhere;hyphens:auto}
+  .dark-copy,.dark-copy *,.network-card,.network-card *{min-width:0}
+  .dark-copy p,.network-card p,.network-card li,.network-consent span{overflow-wrap:anywhere}
+  .topics-slide .topic-grid{display:grid;width:100%;grid-template-columns:1fr!important;border-left:0}
+  .topics-slide .topic-grid article{min-width:0;border-right:0;border-bottom:1px solid #536166}
+  .topics-slide .topic-grid article:first-child{border-top:1px solid #536166}
+}
