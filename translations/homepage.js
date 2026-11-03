@@ -38,5 +38,6 @@
     'Blogbeitrag': ['Blog post', 'Article de blog', 'Entrada de blog'], 'Investment, Forschung': ['Investment, research', 'Investissement, recherche', 'Inversión, investigación'], 'Aktuelle Nachrichten aus der Wirtschaft': ['Current business news', 'Actualités économiques', 'Noticias económicas actuales'], 'Suche Beiträge': ['Search posts', 'Rechercher des articles', 'Buscar publicaciones'], 'Blogbeiträge durchsuchen': ['Search blog posts', 'Rechercher dans les articles de blog', 'Buscar en las publicaciones del blog'], 'Kategorien': ['Categories', 'Catégories', 'Categorías'], 'Weitere Beiträge': ['More posts', 'Autres articles', 'Más publicaciones'], 'Besseren Service für Kunden schaffen': ['Creating better service for customers', 'Créer un meilleur service pour les clients', 'Crear un mejor servicio para los clientes'], 'Geschäftsplanung und Strategie': ['Business planning and strategy', 'Planification et stratégie d’entreprise', 'Planificación y estrategia empresarial']
   };
   const locales = ['en', 'fr', 'es'];
-  window.mergiuTranslate(Object.fromEntries(locales.map((locale, index) => [locale, Object.fromEntries(Object.entries(entries).map(([source, values]) => [source, values[index]]))])));
+  const map = Object.fromEntries(locales.map((locale, index) => [locale, Object.fromEntries(Object.entries(entries).map(([source, values]) => [source, values[index]]))]));
+  if (window.mergiuTranslate) window.mergiuTranslate(map); else (window.mergiuTranslationQueue ||= []).push(map);
 })();
