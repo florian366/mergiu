@@ -5,11 +5,23 @@
       "destination": "/"
     },
     {
+      "source": "/en/",
+      "destination": "/"
+    },
+    {
       "source": "/fr",
       "destination": "/"
     },
     {
+      "source": "/fr/",
+      "destination": "/"
+    },
+    {
       "source": "/es",
+      "destination": "/"
+    },
+    {
+      "source": "/es/",
       "destination": "/"
     },
     {
