@@ -3,6 +3,8 @@ import BlogSearch from './BlogSearch';
 
 export default function BlogPreview({ posts, categories }) {
   const newestPost = posts[0];
+  const truncateTitle = (title) =>
+    title.length > 55 ? `${title.slice(0, 55).trimEnd()}...` : title;
 
   return (
     <section className="blog-section panel" id="blog" aria-label="Blogbeitrag">
@@ -65,7 +67,7 @@ export default function BlogPreview({ posts, categories }) {
                 />
                 <span>
                   <small>{post.shortDate}</small>
-                  {post.title}
+                  {truncateTitle(post.title)}
                 </span>
               </Link>
             ))}
