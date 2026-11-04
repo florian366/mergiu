@@ -170,6 +170,13 @@ if (blogSearch && blogResults.length && blogSidebar) {
 // The newest entry is used as the main article. Add future posts to this list.
 const blogPosts = [
   {
+    slug: 'tierarztpraxis-verkaufen-nachfolger-finden',
+    title: 'Tierarztpraxis verkaufen: Wie Sie den richtigen Nachfolger finden',
+    date: '2026-11-04',
+    label: 'Tiermedizin, Unternehmensnachfolge',
+    image: ''
+  },
+  {
     slug: 'handwerksbetrieb-verkaufen-nachfolger-finden',
     title: 'Handwerksbetrieb verkaufen: So finden Sie einen passenden Nachfolger',
     date: '2026-11-02',
@@ -210,6 +217,16 @@ if (blogPost && newestBlogPost) {
   if (hero) hero.style.backgroundImage = `url("${newestBlogPost.image}")`;
   if (title) title.textContent = newestBlogPost.title;
   if (meta) meta.innerHTML = `${new Date(newestBlogPost.date).toLocaleDateString('de-DE', { day: '2-digit', month: 'short' })} <span>|</span> ${newestBlogPost.label}`;
+}
+
+if (blogPost && newestBlogPost.slug === 'tierarztpraxis-verkaufen-nachfolger-finden') {
+  blogPost.innerHTML = `
+    <div class="blog-image-placeholder">Bildplatzhalter: Tierarztpraxis und Praxisteam</div>
+    <div class="blog-meta">04. Nov <span>|</span> Tiermedizin, Unternehmensnachfolge</div>
+    <h2>${newestBlogPost.title}</h2>
+    <p>Die Übergabe einer Tierarztpraxis betrifft nicht nur Räume und Ausstattung. Auch ein eingespieltes Team, langjährige Patientenbeziehungen und die Verantwortung für die tiermedizinische Versorgung sollen in gute Hände übergehen.</p>
+    <p>Erfahren Sie, welche Käufergruppen für Ihre Praxis infrage kommen und wie MERGIU passende Nachfolger aus dem eigenen Netzwerk identifiziert.</p>
+    <a class="button" href="tierarztpraxis-verkaufen-nachfolger-finden/">Beitrag lesen ↗</a>`;
 }
 
 if (blogPost && newestBlogPost.slug === 'handwerksbetrieb-verkaufen-nachfolger-finden') {
