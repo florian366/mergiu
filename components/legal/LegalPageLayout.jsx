@@ -2,6 +2,7 @@ import Link from 'next/link';
 import SiteFooter from '../site/SiteFooter';
 import { industries } from '../../data/homepage';
 import InViewMotion, { InViewSections } from '../motion/InViewMotion';
+import LanguageSwitcher from '../site/LanguageSwitcher';
 import styles from './LegalPageLayout.module.css';
 
 export default function LegalPageLayout({
@@ -14,6 +15,7 @@ export default function LegalPageLayout({
     <div className={styles.page} id="top">
       <main className={styles.content}>
         <InViewMotion as="header" distance={10}>
+          <LanguageSwitcher />
           <Link className={styles.homeLink} href="/">
             ← Zur Startseite
           </Link>

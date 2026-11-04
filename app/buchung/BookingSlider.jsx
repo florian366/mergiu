@@ -2,13 +2,15 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import LanguageSwitcher from '../../components/site/LanguageSwitcher';
 import { useReducedMotion } from 'motion/react';
 import styles from './booking.module.css';
 
 const PANEL_COUNT = 4;
 const panelWidth = () => window.innerWidth - window.innerWidth * 0.079;
 
-export default function BookingSlider({ children }) {
+export default function BookingSlider({ children, locale = 'de' }) {
+  const isEnglish = locale === 'en';
   const sliderRef = useRef(null);
   const currentRef = useRef(0);
   const positionRef = useRef(0);
@@ -108,16 +110,17 @@ export default function BookingSlider({ children }) {
   return (
     <div className={styles.experience}>
       <aside className={styles.rail}>
-        <Link className={styles.railLogo} href="/" aria-label="MERGIU – Startseite">
+        <Link className={styles.railLogo} href={isEnglish ? '/business-succession/' : '/'} aria-label={isEnglish ? 'MERGIU – Home' : 'MERGIU – Startseite'}>
           <img src="/images/logo%20wei%C3%9F%20mergiu.png" alt="MERGIU" />
         </Link>
         <div className={styles.railMark} aria-hidden="true">
           <img src="/images/Mergio%20M%20wei%C3%9F.png" alt="" />
         </div>
-        <p>Finden Sie noch heute den Nachfolger Ihres Unternehmens.</p>
+        <p>{isEnglish ? 'Find the right successor for your business today.' : 'Finden Sie noch heute den Nachfolger Ihres Unternehmens.'}</p>
+        <LanguageSwitcher />
       </aside>
       <main className={styles.slider} ref={sliderRef}>{children}</main>
-      <div className={styles.slideCount} aria-label={`Seite ${activePanel + 1} von ${PANEL_COUNT}`}>
+      <div className={styles.slideCount} aria-label={`${isEnglish ? 'Slide' : 'Seite'} ${activePanel + 1} ${isEnglish ? 'of' : 'von'} ${PANEL_COUNT}`}>
         <span>{String(activePanel + 1).padStart(2, '0')}</span><i /><span>04</span>
       </div>
     </div>

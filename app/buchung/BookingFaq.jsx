@@ -4,16 +4,24 @@ import { useState } from 'react';
 import InViewMotion from '../../components/motion/InViewMotion';
 import styles from './booking.module.css';
 
-const questions = [
+const questionsDe = [
   ['Wie läuft die Unternehmensnachfolge ab?', 'Wir besprechen Ihre Ziele, prüfen passende Nachfolger in unserem Netzwerk und begleiten Sie persönlich durch die nächsten Schritte.'],
   ['Wie findet MERGIU passende Nachfolger?', 'Wir gleichen Ihr Unternehmen mit unserem Netzwerk aus Käufern, Investoren und Unternehmern ab, die zu Ihrem Betrieb passen können. Es wird keine öffentliche Ausschreibung Ihres Unternehmensverkaufes geben.'],
   ['Wieso ist die Vermittlung kostenlos?', 'Wir berechnen dem Verkäufer keine Vermittlungsprovision, da bei MERGIU der Käufer/Nachfolger diese Vermittlungsprovision zahlt. Für den Verkäufer des Unternehmens fällt nur die einmalige Bearbeitungsgebühr in Höhe von 184€ an.'],
 ];
 
-export default function BookingFaq() {
+const questionsEn = [
+  ['How does business succession work?', 'We discuss your goals, review suitable successors in our network and guide you personally through the next steps.'],
+  ['How does MERGIU find suitable successors?', 'We match your business with buyers, investors and entrepreneurs in our network who may be a good fit. Your business will not be publicly advertised for sale.'],
+  ['Why is the introduction free of commission?', 'MERGIU does not charge sellers a brokerage commission; the buyer or successor pays it. Sellers only pay the one-time processing fee of EUR 184.'],
+];
+
+export default function BookingFaq({ locale = 'de' }) {
+  const questions = locale === 'en' ? questionsEn : questionsDe;
+  const isEnglish = locale === 'en';
   const [openIndex, setOpenIndex] = useState(-1);
   return (
-    <InViewMotion as="section" className={styles.faqSection} aria-label="Häufig gestellte Fragen">
+    <InViewMotion as="section" className={styles.faqSection} aria-label={isEnglish ? 'Frequently asked questions' : 'Häufig gestellte Fragen'}>
       <div className={styles.faqList}>
         {questions.map(([question, answer], index) => {
           const isOpen = index === openIndex;

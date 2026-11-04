@@ -17,11 +17,12 @@ function JsonLd({ data }) {
   );
 }
 
-export default function BlogArticleLayout({ article }) {
+export default function BlogArticleLayout({ article, locale = 'de', industries: pageIndustries = industries }) {
+  const isEnglish = locale === 'en';
   return (
     <div className={styles.page} id="top">
       {article.jsonLd?.map((data, index) => <JsonLd data={data} key={index} />)}
-      <SiteHeader />
+      <SiteHeader locale={locale} />
       <main className={styles.main}>
         <InViewMotion as="header" className={styles.hero} distance={12}>
           <p className={styles.eyebrow}>{article.byline}</p>
@@ -37,14 +38,14 @@ export default function BlogArticleLayout({ article }) {
           />
           <ArticleBlocks blocks={article.blocks} />
         </article>
-        <InViewMotion as="nav" className={styles.articleNavigation} aria-label="Weitere Seiten">
-          <Link href="/">Zur Startseite</Link>
-          <Link href={`/category.html?category=${encodeURIComponent(article.category)}`}>
-            Weitere Beiträge aus {article.category}
+        <InViewMotion as="nav" className={styles.articleNavigation} aria-label={isEnglish ? 'More pages' : 'Weitere Seiten'}>
+          <Link href={isEnglish ? '/business-succession/' : '/'}>{isEnglish ? 'Home' : 'Zur Startseite'}</Link>
+          <Link href={isEnglish ? '/insights/' : `/category.html?category=${encodeURIComponent(article.category)}`}>
+            {isEnglish ? `More articles in ${article.category}` : `Weitere Beiträge aus ${article.category}`}
           </Link>
         </InViewMotion>
       </main>
-      <SiteFooter industries={industries} />
+      <SiteFooter industries={pageIndustries} locale={locale} />
     </div>
   );
 }

@@ -1,5 +1,8 @@
 const nextConfig = {
   trailingSlash: true,
+  outputFileTracingIncludes: {
+    '/*': ['./translations/**/*.js'],
+  },
   async rewrites() {
     return {
       beforeFiles: [

@@ -5,12 +5,13 @@ import { useRef } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import ScrollTextReveal from './ScrollTextReveal';
 
-const headingLines = [
+const headingLinesDe = [
   'Die Zukunft Ihres Unternehmens',
   'beginnt mit uns.',
 ];
 
-export default function SuccessSection() {
+export default function SuccessSection({ locale = 'de' }) {
+  const headingLines = locale === 'en' ? ['The future of your business', 'starts with us.'] : headingLinesDe;
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -31,8 +32,8 @@ export default function SuccessSection() {
             y: shouldReduceMotion ? 0 : y,
           }}
         >
-          <Link className="button success-button" href="/buchung/">
-            Kontakt aufnehmen <span aria-hidden="true">↗</span>
+          <Link className="button success-button" href={locale === 'en' ? '/present-your-business/' : '/buchung/'}>
+            {locale === 'en' ? 'Get in touch' : 'Kontakt aufnehmen'} <span aria-hidden="true">↗</span>
           </Link>
         </motion.div>
       </div>

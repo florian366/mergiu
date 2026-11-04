@@ -1,0 +1,12 @@
+.page { min-height: 100vh; background: #fff; color: #252d31; }
+.main { width: min(1100px, calc(100% - 48px)); margin: 0 auto; padding: 60px 0 100px; }
+.hero { max-width: 850px; padding: 70px 0 90px; }
+.eyebrow { margin: 0 0 22px; color: #778184; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+.hero h1 { margin: 0 0 24px; font-size: clamp(46px, 7vw, 84px); font-weight: 400; letter-spacing: -.05em; line-height: 1.02; }
+.hero > p:not(.eyebrow), .copy, .formSection { max-width: 760px; font-size: 18px; line-height: 1.75; }
+.button { display: inline-block; margin-top: 18px; padding: 13px 22px; border-radius: 28px; background: #252d31; color: #fff; text-decoration: none; }
+.copy, .formSection { padding: 36px 0; }
+.copy h2, .formSection h2 { font-size: 32px; font-weight: 400; }
+.copy li { margin: 10px 0; }
+.formSection { border-top: 1px solid #dfe3e2; }
+@media (max-width: 620px) { .main { width: calc(100% - 36px); padding-top: 30px; } .hero { padding: 50px 0 65px; } }

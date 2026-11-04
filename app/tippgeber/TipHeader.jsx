@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import LanguageSwitcher from '../../components/site/LanguageSwitcher';
 import styles from './tippgeber.module.css';
 
 export default function TipHeader() {
@@ -19,6 +20,7 @@ export default function TipHeader() {
         <Link href="#faq" onClick={closeMenu}>FAQ</Link>
       </nav>
       <Link className={styles.headerCta} href="#tipp">Jetzt Tipp abgeben <span aria-hidden="true">↗</span></Link>
+      <LanguageSwitcher />
       <button className={styles.menuButton} type="button" aria-label={menuOpen ? 'Menü schließen' : 'Menü öffnen'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}><i /><i /></button>
     </header>
   );

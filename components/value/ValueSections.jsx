@@ -3,7 +3,7 @@ import { blogPosts } from '../../data/homepage';
 import InViewMotion from '../motion/InViewMotion';
 import styles from './ValuePage.module.css';
 
-export function ValueHero({ hero }) {
+export function ValueHero({ hero, locale = 'de' }) {
   return (
     <section className={styles.hero} aria-labelledby="value-page-title">
       <div
@@ -22,7 +22,7 @@ export function ValueHero({ hero }) {
           ))}
         </h1>
         <p className={styles.heroLead}>{hero.lead}</p>
-        <Link className={styles.heroButton} href="/#contact">
+        <Link className={styles.heroButton} href={`${locale === 'en' ? '/business-succession/' : '/'}#contact`}>
           {hero.action} <span aria-hidden="true">↗</span>
         </Link>
       </InViewMotion>
@@ -105,28 +105,29 @@ function formatPostDate(date) {
   }).format(new Date(`${date}T00:00:00Z`));
 }
 
-export function BlogCardGrid() {
+export function BlogCardGrid({ locale = 'de', posts = blogPosts }) {
+  const isEnglish = locale === 'en';
   return (
     <section className={styles.blog} id="blog" aria-labelledby="value-blog-title">
       <div className={styles.blogHeading}>
         <h2 id="value-blog-title">
-          Impulse aus <span>unserem Netzwerk</span>
+          {isEnglish ? <>Insights from <span>our network</span></> : <>Impulse aus <span>unserem Netzwerk</span></>}
         </h2>
-        <Link className={styles.textLink} href="/#blog">
-          Alle Beiträge <span aria-hidden="true">↗</span>
+        <Link className={styles.textLink} href={`${isEnglish ? '/business-succession/' : '/'}#blog`}>
+          {isEnglish ? 'All articles' : 'Alle Beiträge'} <span aria-hidden="true">↗</span>
         </Link>
       </div>
       <div className={styles.blogGrid}>
-        {blogPosts.map((post, index) => (
+        {posts.map((post, index) => (
           <InViewMotion as="div" delay={index * 0.07} key={post.slug}>
-            <Link className={styles.blogCard} href={`/${post.slug}/`}>
+            <Link className={styles.blogCard} href={post.localizedHref || `/${post.slug}/`}>
               <div
                 className={styles.blogImage}
                 style={{ backgroundImage: `url("${post.image}")` }}
                 aria-hidden="true"
               />
               <p className={styles.blogMeta}>
-                {formatPostDate(post.date)} <span aria-hidden="true">|</span> {post.label}
+                {new Intl.DateTimeFormat(isEnglish ? 'en-GB' : 'de-DE', { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${post.date}T00:00:00Z`))} <span aria-hidden="true">|</span> {post.label}
               </p>
               <h3>{post.title}</h3>
               <span className={styles.blogArrow} aria-hidden="true">↗</span>

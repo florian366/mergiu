@@ -1,6 +1,16 @@
 import Link from 'next/link';
 
-export default function SiteFooter({ industries }) {
+const englishIndustryLabels = {
+  Handwerk: 'Construction',
+  Tiermedizin: 'Veterinary medicine',
+  Kanzleien: 'Professional firms',
+  'Facility Management': 'Facility services',
+  Einzelhandel: 'Retail',
+  Dienstleistungen: 'Business services',
+};
+
+export default function SiteFooter({ industries, locale = 'de' }) {
+  const isEnglish = locale === 'en';
   return (
     <footer className="site-footer" id="contact">
       <div className="site-footer-main">
@@ -8,17 +18,17 @@ export default function SiteFooter({ industries }) {
           <Link className="site-footer-logo" href="#top" aria-label="MERGIU – Startseite">
             <img src="/images/logo%20wei%C3%9F%20mergiu.png" alt="MERGIU" />
           </Link>
-          <p>Persönlich, diskret und branchenübergreifend vernetzt.</p>
-          <Link className="site-footer-cta" href="/buchung/">
-            Unternehmen verkaufen <span aria-hidden="true">↗</span>
+          <p>{isEnglish ? 'Personal, discreet and connected across industries.' : 'Persönlich, diskret und branchenübergreifend vernetzt.'}</p>
+          <Link className="site-footer-cta" href={isEnglish ? '/present-your-business/' : '/buchung/'}>
+            {isEnglish ? 'Present your business' : 'Unternehmen verkaufen'} <span aria-hidden="true">↗</span>
           </Link>
         </div>
 
-        <nav className="site-footer-column" aria-label="Branchen">
-          <h2>Branchen</h2>
+        <nav className="site-footer-column" aria-label={isEnglish ? 'Industries' : 'Branchen'}>
+          <h2>{isEnglish ? 'Industries' : 'Branchen'}</h2>
           {industries.map((industry) => (
-            <Link href={industry.href} key={industry.name}>
-              {industry.name}
+            <Link href={isEnglish ? industry.englishHref || industry.href : industry.href} key={industry.name}>
+              {isEnglish ? englishIndustryLabels[industry.name] || industry.name : industry.name}
             </Link>
           ))}
         </nav>
@@ -27,9 +37,9 @@ export default function SiteFooter({ industries }) {
       <div className="site-footer-bottom">
         <span>© 2026 MERGIU</span>
         <div>
-          <Link href="/datenschutz.html">Datenschutz</Link>
-          <Link href="/agb.html">AGB</Link>
-          <Link href="/impressum.html">Impressum</Link>
+          <Link href={isEnglish ? '/privacy-policy/' : '/datenschutz.html'}>{isEnglish ? 'Privacy policy' : 'Datenschutz'}</Link>
+          <Link href={isEnglish ? '/terms-and-conditions/' : '/agb.html'}>{isEnglish ? 'Terms' : 'AGB'}</Link>
+          <Link href={isEnglish ? '/legal-notice/' : '/impressum.html'}>{isEnglish ? 'Legal notice' : 'Impressum'}</Link>
         </div>
       </div>
     </footer>

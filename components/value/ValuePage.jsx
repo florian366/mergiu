@@ -4,18 +4,18 @@ import SiteHeader from '../site/SiteHeader';
 import { BlogCardGrid, PrinciplesGrid, StoryBlock, ValueHero, ValueIntro } from './ValueSections';
 import styles from './ValuePage.module.css';
 
-export default function ValuePage({ page }) {
+export default function ValuePage({ page, locale = 'de', posts, industries: pageIndustries = industries }) {
   return (
     <div className={styles.page} id="top">
-      <SiteHeader />
+      <SiteHeader locale={locale} />
       <main>
-        <ValueHero hero={page.hero} />
+        <ValueHero hero={page.hero} locale={locale} />
         <ValueIntro intro={page.intro} />
         <PrinciplesGrid principles={page.principles} />
         <StoryBlock story={page.story} />
-        <BlogCardGrid />
+        <BlogCardGrid locale={locale} posts={posts} />
       </main>
-      <SiteFooter industries={industries} />
+      <SiteFooter industries={pageIndustries} locale={locale} />
     </div>
   );
 }

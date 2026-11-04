@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import SiteFooter from '../site/SiteFooter';
 import SiteHeader from '../site/SiteHeader';
-import { industries } from '../../data/homepage';
+import { industries as defaultIndustries } from '../../data/homepage';
 import InViewMotion from '../motion/InViewMotion';
 import styles from './SectorLandingPage.module.css';
 
@@ -17,7 +17,7 @@ function ActionLink({ children }) {
   );
 }
 
-function Hero({ data }) {
+function Hero({ data, locale = 'de' }) {
   const { hero } = data;
 
   return (
@@ -40,7 +40,7 @@ function Hero({ data }) {
         {hero.feeNote && <small>{hero.feeNote}</small>}
       </InViewMotion>
       <Link className={styles.scrollHint} href="#einleitung">
-        Mehr erfahren <span aria-hidden="true">↓</span>
+        {locale === 'en' ? 'Learn more' : 'Mehr erfahren'} <span aria-hidden="true">↓</span>
       </Link>
     </section>
   );
@@ -238,13 +238,14 @@ function Benefits({ benefits }) {
   );
 }
 
-function Contact({ contact }) {
+function Contact({ contact, locale = 'de' }) {
+  const isEnglish = locale === 'en';
   const mailto = `mailto:info@mergiu.de?subject=${encodeURIComponent(contact.subject)}`;
 
   return (
     <InViewMotion as="section" className={styles.contact} id="kontakt">
       <div>
-        <SectionLabel>Der nächste Schritt</SectionLabel>
+        <SectionLabel>{isEnglish ? 'The next step' : 'Der nächste Schritt'}</SectionLabel>
         <h2>{contact.title}</h2>
         <p>{contact.text}</p>
         <a className={styles.button} href={mailto}>
@@ -254,28 +255,28 @@ function Contact({ contact }) {
       <div className={styles.fee}>
         184€
         <small>
-          einmalige Registrierungs- und Aufbereitungsgebühr
+          {isEnglish ? 'one-time registration and profile-preparation fee' : 'einmalige Registrierungs- und Aufbereitungsgebühr'}
           <br />
-          keine erfolgsabhängige Vermittlungsprovision
+          {isEnglish ? 'no success-based brokerage commission' : 'keine erfolgsabhängige Vermittlungsprovision'}
         </small>
       </div>
     </InViewMotion>
   );
 }
 
-export default function SectorLandingPage({ data }) {
+export default function SectorLandingPage({ data, locale = 'de', industries = defaultIndustries }) {
+  const isEnglish = locale === 'en';
   return (
     <div className={styles.page}>
-      <SiteHeader />
+      <SiteHeader locale={locale} />
       <main id="top">
-        <Hero data={data} />
+        <Hero data={data} locale={locale} />
         <div className={styles.registrationBanner}>
           <span>
-            Sparen Sie sich 20.000€+ für die Provision einer gewöhnlichen Nachfolgesuche.
-            Jetzt bei{' '}
+            {isEnglish ? 'Save EUR 20,000+ compared with the commission for a traditional succession search. Register with ' : 'Sparen Sie sich 20.000€+ für die Provision einer gewöhnlichen Nachfolgesuche. Jetzt bei '}
           </span>
-          <Link href={data.promoHref || '/buchung/'}>MERGIU registrieren</Link>
-          <span> &amp; provisionsfrei Nachfolger finden.</span>
+          <Link href={isEnglish ? '/present-your-business/' : (data.promoHref || '/buchung/')}>{isEnglish ? 'register with MERGIU' : 'MERGIU registrieren'}</Link>
+          <span>{isEnglish ? ' and find a successor without a success fee.' : ' & provisionsfrei Nachfolger finden.'}</span>
         </div>
         <Introduction intro={data.intro} />
         {data.stories.map((story, index) => (
@@ -286,9 +287,9 @@ export default function SectorLandingPage({ data }) {
         {!data.processAfterStories && <Process process={data.process} />}
         <Questions faq={data.faq} />
         <Benefits benefits={data.benefits} />
-        <Contact contact={data.contact} />
+        <Contact contact={data.contact} locale={locale} />
       </main>
-      <SiteFooter industries={industries} />
+      <SiteFooter industries={industries} locale={locale} />
     </div>
   );
 }

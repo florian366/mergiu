@@ -8,23 +8,28 @@ import AnalysisSection from '../components/home/AnalysisSection';
 import SuccessSection from '../components/home/SuccessSection';
 import SiteFooter from '../components/site/SiteFooter';
 import SiteHeader from '../components/site/SiteHeader';
-import { blogCategories, blogPosts, industries, processItems } from '../data/homepage';
+import { analysisSteps, blogCategories, blogPosts, industries, processItems } from '../data/homepage';
 
-export default function HomePage() {
+export default function HomePage({ locale = 'de', content = {} }) {
+  const isEnglish = locale === 'en';
+  const pageIndustries = content.industries || industries;
+  const pagePosts = content.blogPosts || blogPosts;
+  const pageCategories = content.blogCategories || blogCategories;
+  const pageProcessItems = content.processItems || processItems;
   return (
     <>
-      <SiteHeader isHomePage />
+      <SiteHeader isHomePage locale={locale} />
       <main id="top">
-        <HeroSection />
-        <IntroSection />
-        <IndustrySection industries={industries} />
-        <StatsSection />
-        <ProcessAccordion items={processItems} />
-        <SuccessSection />
-        <AnalysisSection />
-        <BlogPreview posts={blogPosts} categories={blogCategories} />
+        <HeroSection locale={locale} />
+        <IntroSection locale={locale} />
+        <IndustrySection industries={pageIndustries} locale={locale} />
+        <StatsSection locale={locale} />
+        <ProcessAccordion items={pageProcessItems} locale={locale} />
+        <SuccessSection locale={locale} />
+        <AnalysisSection locale={locale} steps={content.analysisSteps || analysisSteps} />
+        <BlogPreview posts={pagePosts} categories={pageCategories} locale={locale} />
       </main>
-      <SiteFooter industries={industries} />
+      <SiteFooter industries={pageIndustries} locale={locale} />
     </>
   );
 }

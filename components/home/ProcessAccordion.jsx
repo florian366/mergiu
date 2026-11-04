@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-export default function ProcessAccordion({ items }) {
+export default function ProcessAccordion({ items, locale = 'de' }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
@@ -37,7 +37,7 @@ export default function ProcessAccordion({ items }) {
                     <p>{item.summary}</p>
                     <small>{item.detail}</small>
                     <Link className="button" href={item.href}>
-                      mehr erfahren ↗
+                      {locale === 'en' ? 'Learn more ↗' : 'mehr erfahren ↗'}
                     </Link>
                   </div>
                   <div className={`accordion-image ${item.imageClass}`} aria-hidden="true" />
