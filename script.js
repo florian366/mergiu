@@ -168,29 +168,7 @@ if (blogSearch && blogResults.length && blogSidebar) {
 }
 
 // The newest entry is used as the main article. Add future posts to this list.
-const blogPosts = [
-  {
-    slug: 'tierarztpraxis-verkaufen-nachfolger-finden',
-    title: 'Tierarztpraxis verkaufen: Wie Sie den richtigen Nachfolger finden',
-    date: '2026-11-04',
-    label: 'Tiermedizin, Unternehmensnachfolge',
-    image: ''
-  },
-  {
-    slug: 'handwerksbetrieb-verkaufen-nachfolger-finden',
-    title: 'Handwerksbetrieb verkaufen: So finden Sie einen passenden Nachfolger',
-    date: '2026-11-02',
-    label: 'Handwerk, Unternehmensnachfolge',
-    image: 'images/Handwerksbetrieb verkaufen.jpg'
-  },
-  {
-    slug: 'unternehmensnachfolge-im-handwerk-worauf-betriebsinhaber-achten-sollten-und-wie-sie-einen-passenden-nachfolger-finden',
-    title: 'Unternehmensnachfolge im Handwerk: Worauf Betriebsinhaber achten sollten und wie Sie einen passenden Nachfolger finden',
-    date: '2026-10-28',
-    label: 'Handwerk, Unternehmensnachfolge',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=85'
-  },
-];
+const blogPosts = window.mergiuBlogPosts;
 const postUrl = (post) => `${post.slug}/`;
 const postByTitle = new Map(blogPosts.map((post) => [post.title, post]));
 document.querySelectorAll('.blog-sidebar a, .blog-search-results a').forEach((link) => {
@@ -221,7 +199,7 @@ if (blogPost && newestBlogPost) {
 
 if (blogPost && newestBlogPost.slug === 'tierarztpraxis-verkaufen-nachfolger-finden') {
   blogPost.innerHTML = `
-    <div class="blog-image-placeholder">Bildplatzhalter: Tierarztpraxis und Praxisteam</div>
+    <div class="blog-hero-image" role="img" aria-label="Tierarztpraxis und Praxisteam" style="background-image:url('${newestBlogPost.image}')"></div>
     <div class="blog-meta">04. Nov <span>|</span> Tiermedizin, Unternehmensnachfolge</div>
     <h2>${newestBlogPost.title}</h2>
     <p>Die Übergabe einer Tierarztpraxis betrifft nicht nur Räume und Ausstattung. Auch ein eingespieltes Team, langjährige Patientenbeziehungen und die Verantwortung für die tiermedizinische Versorgung sollen in gute Hände übergehen.</p>

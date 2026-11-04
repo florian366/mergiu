@@ -1,8 +1,11 @@
-const categoryPosts = [
-  { slug: 'tierarztpraxis-verkaufen-nachfolger-finden', category: 'Tiermedizin', date: '04. November', title: 'Tierarztpraxis verkaufen: Wie Sie den richtigen Nachfolger finden', image: '', text: 'Wie Sie passende Käufer für Ihre Tierarztpraxis finden und die Praxisnachfolge diskret vorbereiten.' },
-  { slug: 'handwerksbetrieb-verkaufen-nachfolger-finden', category: 'Handwerk', date: '02. November', title: 'Handwerksbetrieb verkaufen: So finden Sie einen passenden Nachfolger', image: 'images/Handwerksbetrieb verkaufen.jpg', text: 'Wie Sie den Verkauf Ihres Handwerksbetriebs vorbereiten, passende Käufer finden und die Unternehmensnachfolge erfolgreich gestalten.' },
-  { slug: 'unternehmensnachfolge-im-handwerk-worauf-betriebsinhaber-achten-sollten-und-wie-sie-einen-passenden-nachfolger-finden', category: 'Handwerk', date: '28. Oktober', title: 'Unternehmensnachfolge im Handwerk: Worauf Betriebsinhaber achten sollten und wie Sie einen passenden Nachfolger finden', image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=85', text: 'Wie Handwerksunternehmer die Nachfolge frühzeitig planen, den Unternehmenswert einschätzen und passende Übernehmer finden.' },
-];
+const categoryPosts = window.mergiuBlogPosts.map((post) => ({
+  ...post,
+  category: post.label.split(', ')[0],
+  date: new Date(post.date).toLocaleDateString('de-DE', { day: '2-digit', month: 'long' }),
+  text: post.slug === 'tierarztpraxis-verkaufen-nachfolger-finden'
+    ? 'Wie Sie passende Käufer für Ihre Tierarztpraxis finden und die Praxisnachfolge diskret vorbereiten.'
+    : 'Wie Sie die Unternehmensnachfolge vorbereiten, passende Käufer finden und die Übergabe erfolgreich gestalten.'
+}));
 
 const params = new URLSearchParams(window.location.search);
 const category = params.get('category') || 'Handwerk';
