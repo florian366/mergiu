@@ -1,0 +1,214 @@
+.tipsterPage {
+  --ink: #1d2b2f;
+  --muted: #718084;
+  --pale: #e6eeee;
+  --paper: #f7f8f6;
+  --line: #cbd5d5;
+  --accent: #b7c7c8;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.tipsterPage *,
+.tipsterPage *::before,
+.tipsterPage *::after { box-sizing: border-box; }
+.tipsterPage a { color: inherit; }
+.header { position: absolute; z-index: 5; top: 0; right: 4%; left: 4%; display: flex; height: 88px; align-items: center; border-bottom: 1px solid #ffffff66; color: #fff; }
+.logo img { display: block; width: 112px; height: auto; }
+.navigation { display: flex; gap: 38px; margin-right: 42px; margin-left: auto; }
+.navigation a,
+.headerCta { color: #fff; text-decoration: none; font-size: 14px; }
+.headerCta { padding: 11px 19px; border: 1px solid #ffffff99; border-radius: 28px; }
+.headerCta span { margin-left: 14px; font-size: 20px; }
+.menuButton { display: none; }
+.hero { position: relative; display: flex; min-height: 720px; align-items: flex-end; padding: 0 10% 8%; background: linear-gradient(90deg, #17292d 0%, #1e3539d9 48%, #1e353966), url('/images/Handwerksbetrieb%20verkaufen.jpg') center / cover; color: #fff; }
+.heroCopy { position: relative; z-index: 1; max-width: 760px; }
+.eyebrow,
+.sectionLabel { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+.eyebrow { margin: 0 0 24px; color: #d9e3e3; }
+.hero h1 { max-width: 780px; margin: 0 0 23px; font-size: clamp(44px, 5.2vw, 84px); font-weight: 300; line-height: 1.01; letter-spacing: -.065em; }
+.hero h1 em,
+.intro h2 em,
+.process h2 em,
+.benefits h2 em,
+.reward h2 em,
+.note h2 em,
+.faq h2 em,
+.formIntro h2 em { color: var(--accent); font-style: normal; }
+.lead { max-width: 600px; margin: 0 0 28px; font-size: clamp(17px, 1.6vw, 23px); line-height: 1.4; }
+.lead strong { font-weight: 500; }
+.heroActions { display: flex; align-items: center; gap: 28px; }
+.button { display: inline-flex; align-items: center; gap: 18px; border: 0; border-radius: 30px; padding: 12px 20px; cursor: pointer; text-decoration: none; font: inherit; font-size: 16px; transition: transform .2s ease; }
+.button span { font-size: 21px; }
+.buttonLight { background: #eef4f3; color: var(--ink); }
+.buttonDark { background: var(--ink); color: #fff; }
+.button:hover,
+.headerCta:hover { transform: translateY(-2px); }
+.textLink { color: #fff; text-decoration: none; }
+.textLink span { margin-left: 14px; font-size: 21px; }
+.heroNote { position: absolute; right: 10%; bottom: 9%; z-index: 1; display: flex; align-items: center; gap: 16px; }
+.heroNote strong { font-size: 35px; font-weight: 400; }
+.heroNote span { color: #d7e0e0; font-size: 12px; line-height: 1.35; }
+.intro,
+.process,
+.benefits,
+.trust,
+.reward,
+.faq,
+.formSection { padding: clamp(85px, 11vw, 160px) 10%; }
+.sectionLabel { color: #7b898b; }
+.intro { display: grid; grid-template-columns: 25% 1fr; gap: 10%; background: var(--paper); }
+.introCopy { max-width: 850px; }
+.intro h2,
+.process h2,
+.benefits h2,
+.reward h2,
+.note h2,
+.faq h2,
+.formIntro h2 { margin: 0 0 27px; font-size: clamp(38px, 4.8vw, 76px); font-weight: 300; line-height: 1.04; letter-spacing: -.055em; }
+.intro p,
+.processHeading p,
+.benefits p,
+.reward p,
+.note p,
+.formIntro p { max-width: 700px; margin: 0 0 22px; line-height: 1.7; }
+.process { background: var(--pale); }
+.processHeading { max-width: 900px; margin: 22px 0 70px 25%; }
+.steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+.steps article { border-top: 1px solid #849597; padding-top: 22px; }
+.steps b { color: #77898b; font-size: 14px; font-weight: 400; }
+.steps h3 { margin: 29px 0 14px; font-size: 22px; font-weight: 500; line-height: 1.15; }
+.steps p { margin: 0; font-size: 15px; line-height: 1.6; }
+.benefits { background: var(--ink); color: #e8eeee; }
+.benefits > .sectionLabel { color: #aab9ba; }
+.benefitsLayout { display: grid; grid-template-columns: 1fr 1fr; gap: 13%; margin-top: 24px; }
+.benefits h2 { max-width: 650px; }
+.benefits p { color: #bfcccd; }
+.benefitList { border-top: 1px solid #657578; }
+.benefitList div { display: flex; align-items: center; gap: 28px; border-bottom: 1px solid #657578; padding: 20px 0; }
+.benefitList b { color: #aab9ba; font-weight: 400; }
+.benefitList span { font-size: 20px; }
+.trust { background: #d0dddd; }
+.trustGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-top: 65px; }
+.trustGrid article { border-top: 1px solid #6f8082; padding-top: 20px; }
+.trustGrid b { font-size: 22px; font-weight: 500; }
+.trustGrid p { font-size: 15px; line-height: 1.6; }
+.reward { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 10%; background: #f0eee8; }
+.reward h2 { max-width: 650px; }
+.reward .small { max-width: 590px; color: #6d797a; font-size: 14px; }
+.rewardNumber { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 50px 0; text-align: center; }
+.rewardNumber strong { display: block; font-size: clamp(70px, 9vw, 150px); font-weight: 300; line-height: 1; letter-spacing: -.08em; }
+.rewardNumber span { display: block; margin-top: 18px; font-size: 16px; }
+.note { padding: 100px 20%; background: var(--pale); }
+.note > div { max-width: 800px; margin: auto; }
+.noteMark { color: #667a7c; font-size: 30px; }
+.note h2 { margin-top: 22px; font-size: clamp(34px, 4vw, 62px); }
+.faq { background: var(--paper); }
+.faq h2 { max-width: 700px; margin: 25px 0 65px 25%; }
+.faqList { max-width: 800px; margin-left: 25%; border-top: 1px solid var(--line); }
+.faqList details { border-bottom: 1px solid var(--line); }
+.faqList summary { position: relative; padding: 24px 45px 24px 0; cursor: pointer; list-style: none; font-size: 20px; font-weight: 500; }
+.faqList summary::-webkit-details-marker { display: none; }
+.faqList summary::after { position: absolute; top: 18px; right: 4px; color: #758487; content: '+'; font-size: 28px; font-weight: 300; transition: transform .2s ease; }
+.faqList details[open] summary::after { transform: rotate(45deg); }
+.faqList details p { max-width: 700px; margin: 0; padding: 0 45px 24px 0; color: #607073; }
+.formSection { display: grid; grid-template-columns: .85fr 1.15fr; gap: 8%; padding-top: 90px; padding-bottom: 90px; background: #dce7e6; }
+.formIntro h2 { margin: 24px 0 20px; font-size: clamp(34px, 4vw, 58px); }
+.tipForm { display: grid; max-width: 700px; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+.tipForm label { display: flex; min-width: 0; flex-direction: column; gap: 5px; color: #4b5b5e; font-size: 13px; }
+.tipForm label:nth-of-type(4),
+.tipForm label:nth-of-type(6),
+.tipForm label:nth-of-type(7),
+.tipForm .consent { grid-column: 1 / -1; }
+.tipForm label span { color: #849092; }
+.tipForm input,
+.tipForm textarea { width: 100%; border: 1px solid #aebdbc; border-radius: 2px; outline: 0; background: #f7f9f8; padding: 9px 11px; color: var(--ink); font: inherit; font-size: 14px; resize: vertical; }
+.tipForm input:focus,
+.tipForm textarea:focus { outline: 2px solid #738b8d; outline-offset: 2px; }
+.consent { flex-direction: row !important; align-items: flex-start; gap: 10px !important; font-size: 12px !important; line-height: 1.45; }
+.consent input { flex: 0 0 auto; width: 17px; margin-top: 3px; }
+.consent span { color: inherit !important; }
+.consent a { text-decoration: underline; }
+.tipForm .button { justify-self: start; padding: 11px 18px; font-size: 14px; }
+.formNote { grid-column: 1 / -1; margin: 0; color: #697a7c; font-size: 12px; line-height: 1.5; }
+.formSuccess { grid-column: 1 / -1; padding: 28px; background: #eef4f3; }
+.formSuccess strong { font-size: 23px; }
+.formSuccess p { margin-bottom: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .button { transition: none; }
+  .button:hover,
+  .headerCta:hover { transform: none; }
+  .faqList summary::after { transition: none; }
+}
+
+@media (max-width: 900px) {
+  .header { right: 5%; left: 5%; height: 74px; }
+  .navigation,
+  .headerCta { display: none; }
+  .navigationOpen { position: absolute; top: 74px; right: 0; left: 0; display: flex; flex-direction: column; gap: 18px; margin: 0; border: 1px solid #647678; background: var(--ink); padding: 22px; }
+  .menuButton { display: block; margin-left: auto; border: 0; background: transparent; padding: 8px 0 8px 8px; }
+  .menuButton i { display: block; width: 26px; margin: 7px; border-top: 1px solid #fff; }
+  .hero { min-height: 720px; padding: 0 7% 12%; }
+  .heroNote { right: 7%; bottom: 5%; }
+  .intro,
+  .process,
+  .benefits,
+  .trust,
+  .reward,
+  .faq,
+  .formSection { padding-right: 7%; padding-left: 7%; }
+  .intro { display: block; }
+  .introCopy { margin: 50px 0 0 17%; }
+  .processHeading { margin-left: 17%; }
+  .steps { grid-template-columns: repeat(2, 1fr); gap: 38px 25px; }
+  .benefitsLayout,
+  .reward,
+  .formSection { grid-template-columns: 1fr; gap: 55px; }
+  .trustGrid { grid-template-columns: repeat(2, 1fr); }
+  .faq h2,
+  .faqList { margin-left: 17%; }
+  .note { padding-right: 12%; padding-left: 12%; }
+}
+
+@media (max-width: 600px) {
+  .hero { min-height: 100svh; height: auto; padding: 0 7% 24%; }
+  .hero h1 { font-size: clamp(43px, 12vw, 66px); }
+  .heroActions { align-items: flex-start; flex-direction: column; gap: 18px; }
+  .heroNote { position: static; margin-top: 38px; }
+  .intro,
+  .process,
+  .benefits,
+  .trust,
+  .reward,
+  .faq { padding-top: 78px; padding-bottom: 78px; }
+  .formSection { padding-top: 65px; padding-bottom: 65px; }
+  .introCopy,
+  .processHeading,
+  .faq h2,
+  .faqList { margin-left: 0; }
+  .intro h2,
+  .process h2,
+  .benefits h2,
+  .reward h2,
+  .note h2,
+  .faq h2,
+  .formIntro h2 { font-size: 42px; }
+  .steps,
+  .trustGrid,
+  .tipForm { grid-template-columns: 1fr; }
+  .benefitList div { padding: 17px 0; }
+  .rewardNumber { padding: 35px 0; }
+  .rewardNumber strong { font-size: 92px; }
+  .note { padding: 78px 7%; }
+  .tipForm label:nth-of-type(4),
+  .tipForm label:nth-of-type(6),
+  .tipForm label:nth-of-type(7),
+  .tipForm .consent { grid-column: auto; }
+  .tipForm .consent { grid-column: 1 !important; }
+}

@@ -7,4 +7,5 @@
 .stats { display: grid; }
 .service-image { background-position: center; background-size: cover; }
 .no-results { display: block; padding: 12px 14px; font-size: 15px; }
+.blog-search-panel.search-open .blog-search-results { display: block; }
 @media (max-width: 900px) { .stats { display: grid; } .accordion-section { display: block; } }

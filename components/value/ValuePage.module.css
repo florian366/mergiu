@@ -1,0 +1,534 @@
+.page {
+  --ink: #1b292d;
+  --muted: #849296;
+  --paper: #f5f6f4;
+  --line: #cbd1d1;
+  --accent: #b7c4c8;
+  --dark: #202f34;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.page :global(.header) {
+  top: 38px;
+  left: 3%;
+  right: 3%;
+  height: 84px;
+  border-color: rgb(255 255 255 / 40%);
+}
+
+.page :global(.header nav) {
+  width: auto;
+  margin-left: auto;
+  margin-right: 4%;
+  gap: clamp(24px, 3vw, 56px);
+}
+
+.page :global(.header nav a) {
+  color: #fff;
+  font-size: 15px;
+}
+
+.page :global(.header .contact-pill) {
+  color: #fff;
+  background: rgb(183 196 200 / 62%);
+  font-size: 15px;
+  padding: 13px 25px;
+}
+
+.hero {
+  position: relative;
+  height: min(900px, 100svh);
+  min-height: 680px;
+  overflow: hidden;
+  background: var(--dark);
+  color: #fff;
+}
+
+.heroImage,
+.heroShade {
+  position: absolute;
+  inset: 0;
+}
+
+.heroImage {
+  background-image: linear-gradient(90deg, rgb(15 25 28 / 83%), rgb(15 25 28 / 16%)), var(--hero-image);
+  background-position: center, center 38%;
+  background-size: cover;
+  filter: grayscale(1);
+}
+
+.heroShade {
+  background: linear-gradient(0deg, rgb(15 25 28 / 65%), transparent 55%);
+}
+
+.heroContent {
+  position: absolute;
+  z-index: 1;
+  right: 8%;
+  bottom: 11%;
+  left: 8%;
+  max-width: 670px;
+}
+
+.eyebrow {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: .18em;
+}
+
+.hero .eyebrow {
+  color: #d3dcdd;
+}
+
+.hero h1 {
+  margin: 0 0 30px;
+  font-size: clamp(52px, 6.8vw, 104px);
+  font-weight: 300;
+  letter-spacing: -.055em;
+  line-height: .99;
+}
+
+.hero h1 span,
+.principlesHeading h2 span {
+  display: block;
+}
+
+.emphasis {
+  color: var(--accent);
+}
+
+.heroLead {
+  max-width: 505px;
+  margin: 0 0 35px;
+  color: #e2e8e8;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.heroButton,
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.heroButton {
+  padding: 14px 22px;
+  border: 1px solid rgb(255 255 255 / 65%);
+  border-radius: 30px;
+}
+
+.heroButton span,
+.textLink span {
+  font-size: 21px;
+}
+
+.heroIndex {
+  position: absolute;
+  right: 5%;
+  bottom: 8%;
+  color: rgb(255 255 255 / 75%);
+  font-size: 13px;
+  letter-spacing: .16em;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(180px, .65fr) 1.35fr;
+  gap: clamp(48px, 10vw, 160px);
+  padding: clamp(90px, 12vw, 175px) 9%;
+  background: var(--paper);
+}
+
+.sectionLabel {
+  padding-top: 12px;
+  color: #657276;
+  font-size: 12px;
+  letter-spacing: .16em;
+}
+
+.introCopy {
+  max-width: 850px;
+}
+
+.introCopy h2,
+.storyCopy h2 {
+  margin: 0 0 28px;
+  font-size: clamp(38px, 5vw, 72px);
+  font-weight: 300;
+  letter-spacing: -.045em;
+  line-height: 1.05;
+}
+
+.introCopy p,
+.storyCopy > p:not(.eyebrow) {
+  max-width: 720px;
+  margin: 0;
+  color: #475559;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.principles {
+  padding: clamp(76px, 9vw, 130px) 9% clamp(90px, 11vw, 155px);
+  background: var(--dark);
+  color: #f3f5f4;
+}
+
+.principlesHeading {
+  max-width: 900px;
+  margin: 0 0 75px 17%;
+}
+
+.principlesHeading .eyebrow {
+  color: #b7c4c8;
+}
+
+.principlesHeading h2 {
+  margin: 0;
+  font-size: clamp(42px, 5.5vw, 76px);
+  font-weight: 300;
+  letter-spacing: -.05em;
+  line-height: 1.02;
+}
+
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.principleCard {
+  position: relative;
+  min-height: 320px;
+  padding: 28px 24px 30px;
+  border: 1px solid rgb(203 209 209 / 28%);
+  background: rgb(255 255 255 / 3%);
+}
+
+.principleNumber {
+  color: #9ba9ac;
+  font-size: 12px;
+  letter-spacing: .15em;
+}
+
+.principleIcon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  margin: 36px 0 28px;
+  place-items: center;
+  border: 1px solid #8f9fa2;
+  border-radius: 50%;
+  color: #d3dcdd;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.icon2 { font-size: 37px; }
+.icon3 { font-size: 25px; }
+.icon4 { font-size: 33px; }
+
+.principleCard h3 {
+  margin: 0 0 12px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.principleCard p {
+  margin: 0;
+  color: #c0cbcd;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 650px;
+  background: #e8ecea;
+}
+
+.storyImage {
+  min-height: 500px;
+  background-image: linear-gradient(0deg, rgb(20 33 37 / 20%), rgb(20 33 37 / 8%)), var(--story-image);
+  background-position: center;
+  background-size: cover;
+  filter: grayscale(.75);
+}
+
+.storyCopy {
+  align-self: center;
+  padding: 90px clamp(40px, 8vw, 120px);
+}
+
+.storyCopy .eyebrow {
+  color: #718084;
+}
+
+.storyCopy h2 {
+  font-size: clamp(36px, 4vw, 60px);
+}
+
+.storyCopy > p:not(.eyebrow) {
+  margin-bottom: 18px;
+  font-size: 16px;
+}
+
+.storyCopy .textLink {
+  margin-top: 18px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid currentcolor;
+  color: var(--ink);
+}
+
+.blog {
+  padding: clamp(80px, 10vw, 140px) 8% clamp(100px, 12vw, 165px);
+  background: var(--paper);
+}
+
+.blogHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 55px;
+}
+
+.blogHeading h2 {
+  margin: 0;
+  font-size: clamp(40px, 5vw, 70px);
+  font-weight: 300;
+  letter-spacing: -.05em;
+  line-height: 1.05;
+}
+
+.blogHeading h2 span {
+  color: #829195;
+}
+
+.blogHeading .textLink {
+  flex: 0 0 auto;
+  color: var(--ink);
+}
+
+.blogGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.blogCard {
+  position: relative;
+  min-width: 0;
+  padding-bottom: 18px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.blogImage {
+  aspect-ratio: 1.55;
+  margin-bottom: 24px;
+  background-position: center;
+  background-size: cover;
+  filter: grayscale(.45);
+}
+
+.blogMeta {
+  margin: 0 0 14px;
+  color: #718084;
+  font-size: 11px;
+  letter-spacing: .08em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.blogMeta span {
+  padding: 0 7px;
+}
+
+.blogCard h3 {
+  max-width: 440px;
+  margin: 0;
+  padding-right: 32px;
+  font-size: clamp(21px, 1.8vw, 28px);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.blogArrow {
+  position: absolute;
+  right: 5px;
+  bottom: 20px;
+  font-size: 22px;
+}
+
+.blogCard:hover h3,
+.textLink:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+@media (max-width: 900px) {
+  .page :global(.header) {
+    top: 36px;
+    left: 5%;
+    right: 5%;
+    height: 72px;
+  }
+
+  .page :global(.header nav.open) {
+    top: 72px;
+    color: #fff;
+  }
+
+  .heroContent {
+    right: 7%;
+    bottom: 9%;
+    left: 7%;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 9vw, 64px);
+  }
+
+  .heroLead {
+    font-size: 16px;
+  }
+
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 38px;
+    padding-right: 7%;
+    padding-left: 7%;
+  }
+
+  .introCopy {
+    margin-left: 12%;
+  }
+
+  .introCopy h2,
+  .storyCopy h2 {
+    font-size: clamp(35px, 7vw, 54px);
+  }
+
+  .principles {
+    padding-right: 7%;
+    padding-left: 7%;
+  }
+
+  .principlesHeading {
+    margin-left: 12%;
+  }
+
+  .principlesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .story {
+    grid-template-columns: 1fr;
+  }
+
+  .storyImage {
+    min-height: 420px;
+  }
+
+  .storyCopy {
+    padding: 75px 12%;
+  }
+
+  .blogGrid {
+    gap: 18px;
+  }
+
+  .blogMeta {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    height: auto;
+    min-height: 100svh;
+  }
+
+  .heroContent {
+    right: 7%;
+    bottom: 9%;
+    left: 7%;
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 11vw, 52px);
+  }
+
+  .heroLead {
+    font-size: 16px;
+  }
+
+  .introCopy {
+    margin-left: 0;
+  }
+
+  .introCopy h2,
+  .storyCopy h2 {
+    font-size: 38px;
+  }
+
+  .principlesHeading {
+    margin-left: 0;
+  }
+
+  .principlesHeading h2 {
+    font-size: clamp(38px, 9vw, 52px);
+  }
+
+  .principlesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .principleCard {
+    min-height: 280px;
+  }
+
+  .storyImage {
+    min-height: 320px;
+  }
+
+  .storyCopy {
+    padding: 65px 7%;
+  }
+
+  .blog {
+    padding-right: 7%;
+    padding-left: 7%;
+  }
+
+  .blogHeading {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 38px;
+  }
+
+  .blogHeading h2 {
+    font-size: 45px;
+  }
+
+  .blogGrid {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .blogImage {
+    aspect-ratio: 1.5;
+  }
+}
