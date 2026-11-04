@@ -5,27 +5,77 @@ import { getLocalizedRoute, normalizeLocalizedPath } from './i18n-routes';
 
 const dictionaryCache = new Map();
 
-function normalizeDictionary(raw) {
-  if (!raw || typeof raw !== 'object') return {};
-  if (raw.en && typeof raw.en === 'object') {
-    const { text, ...entries } = raw.en;
-    return { ...entries, ...(text || {}) };
-  }
+const frenchWordCorrections = {
+  reseau: 'réseau',
+  reseaux: 'réseaux',
+  discrete: 'discrète',
+  discretement: 'discrètement',
+  reussie: 'réussie',
+  reussi: 'réussi',
+  reussite: 'réussite',
+  etape: 'étape',
+  etapes: 'étapes',
+  preparation: 'préparation',
+  preparee: 'préparée',
+  preparer: 'préparer',
+  medical: 'médical',
+  medicale: 'médicale',
+  premiere: 'première',
+  precis: 'précis',
+  precise: 'précise',
+  precisement: 'précisément',
+  interesses: 'intéressés',
+  interesse: 'intéressé',
+  interet: 'intérêt',
+  negociations: 'négociations',
+  maniere: 'manière',
+  differents: 'différents',
+  proprietaire: 'propriétaire',
+  proprietaires: 'propriétaires',
+  'peut-etre': 'peut-être',
+  deja: 'déjà',
+  ete: 'été',
+  etre: 'être',
+  meme: 'même',
+};
 
-  return Object.fromEntries(
-    Object.entries(raw)
-      .filter(([, value]) => value && typeof value === 'object' && typeof value.en === 'string')
-      .map(([source, value]) => [source, value.en]),
-  );
+function polishFrench(value) {
+  if (typeof value !== 'string') return value;
+  return value.replace(/\b(reseaux?|discrete|discretement|reuss(?:ie|i|ite)|etapes?|preparation|preparee|preparer|medicale?|premiere|precis(?:e|ement)?|interesses?|interet|negociations|maniere|differents|proprietaires?|peut-etre|deja|ete|etre|meme)\b/gi, (word) => {
+    const corrected = frenchWordCorrections[word.toLowerCase()];
+    if (!corrected) return word;
+    if (word === word.toUpperCase()) return corrected.toUpperCase();
+    return word[0] === word[0].toUpperCase()
+      ? `${corrected[0].toUpperCase()}${corrected.slice(1)}`
+      : corrected;
+  });
 }
 
-export function getEnglishDictionary(moduleName) {
+function normalizeDictionary(raw, locale = 'en') {
+  if (!raw || typeof raw !== 'object') return {};
+  let dictionary;
+  if (raw[locale] && typeof raw[locale] === 'object') {
+    const { text, ...entries } = raw[locale];
+    dictionary = { ...entries, ...(text || {}) };
+  } else {
+    dictionary = Object.fromEntries(
+      Object.entries(raw)
+        .filter(([, value]) => value && typeof value === 'object' && typeof value[locale] === 'string')
+        .map(([source, value]) => [source, value[locale]]),
+    );
+  }
+  if (locale !== 'fr') return dictionary;
+  return Object.fromEntries(Object.entries(dictionary).map(([source, translation]) => [source, polishFrench(translation)]));
+}
+
+export function getTranslationDictionary(moduleName, locale = 'en') {
   if (!moduleName) return {};
-  if (dictionaryCache.has(moduleName)) return dictionaryCache.get(moduleName);
+  const cacheKey = `${locale}:${moduleName}`;
+  if (dictionaryCache.has(cacheKey)) return dictionaryCache.get(cacheKey);
 
   const filePath = path.join(process.cwd(), 'translations', `${moduleName}.js`);
   if (!fs.existsSync(filePath)) {
-    dictionaryCache.set(moduleName, {});
+    dictionaryCache.set(cacheKey, {});
     return {};
   }
 
@@ -36,9 +86,13 @@ export function getEnglishDictionary(moduleName) {
   };
   const source = fs.readFileSync(filePath, 'utf8');
   new vm.Script(source, { filename: filePath }).runInNewContext({ window });
-  const dictionary = normalizeDictionary(captured[0]);
-  dictionaryCache.set(moduleName, dictionary);
+  const dictionary = normalizeDictionary(captured[0], locale);
+  dictionaryCache.set(cacheKey, dictionary);
   return dictionary;
+}
+
+export function getEnglishDictionary(moduleName) {
+  return getTranslationDictionary(moduleName, 'en');
 }
 
 export function translateTree(value, dictionary) {

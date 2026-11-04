@@ -40,7 +40,7 @@ function Hero({ data, locale = 'de' }) {
         {hero.feeNote && <small>{hero.feeNote}</small>}
       </InViewMotion>
       <Link className={styles.scrollHint} href="#einleitung">
-        {locale === 'en' ? 'Learn more' : 'Mehr erfahren'} <span aria-hidden="true">↓</span>
+        {locale === 'en' ? 'Learn more' : locale === 'fr' ? 'En savoir plus' : 'Mehr erfahren'} <span aria-hidden="true">↓</span>
       </Link>
     </section>
   );
@@ -240,12 +240,13 @@ function Benefits({ benefits }) {
 
 function Contact({ contact, locale = 'de' }) {
   const isEnglish = locale === 'en';
+  const isFrench = locale === 'fr';
   const mailto = `mailto:info@mergiu.de?subject=${encodeURIComponent(contact.subject)}`;
 
   return (
     <InViewMotion as="section" className={styles.contact} id="kontakt">
       <div>
-        <SectionLabel>{isEnglish ? 'The next step' : 'Der nächste Schritt'}</SectionLabel>
+          <SectionLabel>{isEnglish ? 'The next step' : isFrench ? 'La prochaine étape' : 'Der nächste Schritt'}</SectionLabel>
         <h2>{contact.title}</h2>
         <p>{contact.text}</p>
         <a className={styles.button} href={mailto}>
@@ -255,9 +256,9 @@ function Contact({ contact, locale = 'de' }) {
       <div className={styles.fee}>
         184€
         <small>
-          {isEnglish ? 'one-time registration and profile-preparation fee' : 'einmalige Registrierungs- und Aufbereitungsgebühr'}
+          {isEnglish ? 'one-time registration and profile-preparation fee' : isFrench ? 'frais uniques d’inscription et de préparation du profil' : 'einmalige Registrierungs- und Aufbereitungsgebühr'}
           <br />
-          {isEnglish ? 'no success-based brokerage commission' : 'keine erfolgsabhängige Vermittlungsprovision'}
+          {isEnglish ? 'no success-based brokerage commission' : isFrench ? 'aucune commission d’intermédiation liée au succès' : 'keine erfolgsabhängige Vermittlungsprovision'}
         </small>
       </div>
     </InViewMotion>
@@ -266,6 +267,7 @@ function Contact({ contact, locale = 'de' }) {
 
 export default function SectorLandingPage({ data, locale = 'de', industries = defaultIndustries }) {
   const isEnglish = locale === 'en';
+  const isFrench = locale === 'fr';
   return (
     <div className={styles.page}>
       <SiteHeader locale={locale} />
@@ -273,10 +275,10 @@ export default function SectorLandingPage({ data, locale = 'de', industries = de
         <Hero data={data} locale={locale} />
         <div className={styles.registrationBanner}>
           <span>
-            {isEnglish ? 'Save EUR 20,000+ compared with the commission for a traditional succession search. Register with ' : 'Sparen Sie sich 20.000€+ für die Provision einer gewöhnlichen Nachfolgesuche. Jetzt bei '}
+            {isEnglish ? 'Save EUR 20,000+ compared with the commission for a traditional succession search. Register with ' : isFrench ? 'Évitez les commissions élevées d’une recherche de repreneur traditionnelle. Inscrivez-vous auprès de ' : 'Sparen Sie sich 20.000€+ für die Provision einer gewöhnlichen Nachfolgesuche. Jetzt bei '}
           </span>
-          <Link href={isEnglish ? '/present-your-business/' : (data.promoHref || '/buchung/')}>{isEnglish ? 'register with MERGIU' : 'MERGIU registrieren'}</Link>
-          <span>{isEnglish ? ' and find a successor without a success fee.' : ' & provisionsfrei Nachfolger finden.'}</span>
+          <Link href={isEnglish ? '/present-your-business/' : isFrench ? (data.promoHref || '/fr/presenter-votre-entreprise/') : (data.promoHref || '/buchung/')}>{isEnglish ? 'register with MERGIU' : isFrench ? 'MERGIU' : 'MERGIU registrieren'}</Link>
+          <span>{isEnglish ? ' and find a successor without a success fee.' : isFrench ? ' pour trouver un repreneur sans commission vendeur liée au succès.' : ' & provisionsfrei Nachfolger finden.'}</span>
         </div>
         <Introduction intro={data.intro} />
         {data.stories.map((story, index) => (

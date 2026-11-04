@@ -29,10 +29,10 @@ const faqItems = [
   ['Was, wenn das Unternehmen noch nicht verkaufen möchte?', 'Auch das kann interessant sein. Eine Nachfolge wird häufig langfristig geplant. Wir prüfen gemeinsam, ob und wann eine Kontaktaufnahme sinnvoll ist.'],
 ];
 
-export default function TipsterPage() {
+export default function TipsterPage({ locale = 'de', industries: pageIndustries = industries } = {}) {
   return (
     <div className={styles.tipsterPage} id="top">
-      <TipHeader />
+      <TipHeader locale={locale} />
       <main>
         <section className={styles.hero}>
           <InViewMotion className={styles.heroCopy} distance={12}>
@@ -68,9 +68,9 @@ export default function TipsterPage() {
 
         <InViewMotion as="section" className={styles.faq} id="faq"><div className={styles.sectionLabel}>06 / HÄUFIGE FRAGEN</div><h2>Was Sie noch <em>wissen möchten.</em></h2><div className={styles.faqList}>{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></InViewMotion>
 
-        <InViewMotion as="section" className={styles.formSection} id="tipp"><div className={styles.formIntro}><div className={styles.sectionLabel}>07 / IHR TIPP</div><h2>Kennen Sie ein Unternehmen, das einen <em>Nachfolger sucht?</em></h2><p>Erzählen Sie uns kurz, worum es geht. Wir melden uns diskret bei Ihnen.</p></div><TipForm /></InViewMotion>
+        <InViewMotion as="section" className={styles.formSection} id="tipp"><div className={styles.formIntro}><div className={styles.sectionLabel}>07 / IHR TIPP</div><h2>Kennen Sie ein Unternehmen, das einen <em>Nachfolger sucht?</em></h2><p>Erzählen Sie uns kurz, worum es geht. Wir melden uns diskret bei Ihnen.</p></div><TipForm locale={locale} /></InViewMotion>
       </main>
-      <SiteFooter industries={industries} />
+      <SiteFooter industries={pageIndustries} locale={locale} />
     </div>
   );
 }

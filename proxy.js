@@ -1,8 +1,15 @@
 import { NextResponse } from 'next/server';
-import { getLocalizedRoute, isEnglishPath } from './data/i18n-routes';
+import { getLocalizedRoute, localeForPath } from './data/i18n-routes';
 
 export function proxy(request) {
   const { pathname, search } = request.nextUrl;
+  if (pathname === '/fr' || pathname.startsWith('/fr/')) {
+    const frenchRoute = getLocalizedRoute(pathname);
+    if (frenchRoute && pathname !== frenchRoute.fr) {
+      return NextResponse.redirect(new URL(`${frenchRoute.fr}${search}`, request.url), 308);
+    }
+  }
+
   const locale = pathname === '/de' || pathname === '/de/' || pathname.startsWith('/de/')
     ? 'de'
     : pathname === '/en' || pathname === '/en/' || pathname.startsWith('/en/')
@@ -15,7 +22,7 @@ export function proxy(request) {
   }
 
   const requestHeaders = new Headers(request.headers);
-  requestHeaders.set('x-mergiu-language', isEnglishPath(pathname) ? 'en' : 'de');
+  requestHeaders.set('x-mergiu-language', localeForPath(pathname));
   return NextResponse.next({ request: { headers: requestHeaders } });
 }
 

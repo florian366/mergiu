@@ -16,12 +16,19 @@ const questionsEn = [
   ['Why is the introduction free of commission?', 'MERGIU does not charge sellers a brokerage commission; the buyer or successor pays it. Sellers only pay the one-time processing fee of EUR 184.'],
 ];
 
+const questionsFr = [
+  ['Comment se déroule une transmission ?', 'Nous échangeons sur votre projet, recherchons des repreneurs adaptés dans notre réseau et vous accompagnons personnellement.'],
+  ['Comment MERGIU trouve-t-il des repreneurs ?', 'Nous étudions les profils d’acheteurs, d’investisseurs et d’entrepreneurs de notre réseau. Votre entreprise ne fait pas l’objet d’une annonce publique.'],
+  ['Pourquoi la mise en relation est-elle sans commission vendeur ?', 'La commission d’intermédiation est payée par l’acheteur ou le repreneur. Le vendeur règle uniquement les frais uniques de préparation de 184 €.'],
+];
+
 export default function BookingFaq({ locale = 'de' }) {
-  const questions = locale === 'en' ? questionsEn : questionsDe;
+  const questions = locale === 'en' ? questionsEn : locale === 'fr' ? questionsFr : questionsDe;
   const isEnglish = locale === 'en';
+  const isFrench = locale === 'fr';
   const [openIndex, setOpenIndex] = useState(-1);
   return (
-    <InViewMotion as="section" className={styles.faqSection} aria-label={isEnglish ? 'Frequently asked questions' : 'Häufig gestellte Fragen'}>
+    <InViewMotion as="section" className={styles.faqSection} aria-label={isEnglish ? 'Frequently asked questions' : isFrench ? 'Questions fréquentes' : 'Häufig gestellte Fragen'}>
       <div className={styles.faqList}>
         {questions.map(([question, answer], index) => {
           const isOpen = index === openIndex;

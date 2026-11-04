@@ -1,5 +1,8 @@
 (function () {
   const map = {
+    '500€ bei erfolgreicher Vermittlung': { en: '500 EUR for a successful introduction', fr: '500 € en cas de mise en relation réussie', es: '500 EUR por una intermediación exitosa' },
+    '500€ bei': { en: '500 EUR for a', fr: '500 € en cas de', es: '500 EUR por una' },
+    'Wann bekomme ich die 500€?': { en: 'When will I receive the 500 EUR?', fr: 'Quand recevrai-je les 500 € ?', es: '¿Cuándo recibiré los 500 EUR?' },
     '500€ Tippgeberprämie für Unternehmensnachfolge | MERGIU': { en: '500 EUR referral reward for business succession | MERGIU', fr: 'Prime de recommandation de 500 EUR pour la transmission d’entreprise | MERGIU', es: 'Recompensa de recomendación de 500 EUR para la sucesión empresarial | MERGIU' },
     'Sie kennen ein Unternehmen, das einen Nachfolger sucht? Geben Sie MERGIU einen diskreten Hinweis und erhalten Sie 500€ bei erfolgreicher Vermittlung.': { en: 'Do you know a business looking for a successor? Send MERGIU a discreet tip and receive 500 EUR for a successful placement.', fr: 'Vous connaissez une entreprise qui cherche un repreneur ? Transmettez une information discrete a MERGIU et recevez 500 EUR en cas de mise en relation reussie.', es: '¿Conoce una empresa que busca un sucesor? Envíe una recomendación discreta a MERGIU y reciba 500 EUR por una intermediación exitosa.' },
     'So funktioniert\'s': { en: 'How it works', fr: 'Comment cela fonctionne', es: 'Cómo funciona' },

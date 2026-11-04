@@ -19,6 +19,7 @@ function JsonLd({ data }) {
 
 export default function BlogArticleLayout({ article, locale = 'de', industries: pageIndustries = industries }) {
   const isEnglish = locale === 'en';
+  const isFrench = locale === 'fr';
   return (
     <div className={styles.page} id="top">
       {article.jsonLd?.map((data, index) => <JsonLd data={data} key={index} />)}
@@ -38,10 +39,10 @@ export default function BlogArticleLayout({ article, locale = 'de', industries: 
           />
           <ArticleBlocks blocks={article.blocks} />
         </article>
-        <InViewMotion as="nav" className={styles.articleNavigation} aria-label={isEnglish ? 'More pages' : 'Weitere Seiten'}>
-          <Link href={isEnglish ? '/business-succession/' : '/'}>{isEnglish ? 'Home' : 'Zur Startseite'}</Link>
-          <Link href={isEnglish ? '/insights/' : `/category.html?category=${encodeURIComponent(article.category)}`}>
-            {isEnglish ? `More articles in ${article.category}` : `Weitere Beiträge aus ${article.category}`}
+        <InViewMotion as="nav" className={styles.articleNavigation} aria-label={isEnglish ? 'More pages' : isFrench ? 'Autres pages' : 'Weitere Seiten'}>
+          <Link href={isEnglish ? '/business-succession/' : isFrench ? '/fr/' : '/'}>{isEnglish ? 'Home' : isFrench ? 'Accueil' : 'Zur Startseite'}</Link>
+          <Link href={isEnglish ? '/insights/' : isFrench ? '/fr/articles-transmission-entreprise/' : `/category.html?category=${encodeURIComponent(article.category)}`}>
+            {isEnglish ? `More articles in ${article.category}` : isFrench ? `Autres articles · ${article.category}` : `Weitere Beiträge aus ${article.category}`}
           </Link>
         </InViewMotion>
       </main>

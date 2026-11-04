@@ -22,7 +22,7 @@ export function ValueHero({ hero, locale = 'de' }) {
           ))}
         </h1>
         <p className={styles.heroLead}>{hero.lead}</p>
-        <Link className={styles.heroButton} href={`${locale === 'en' ? '/business-succession/' : '/'}#contact`}>
+        <Link className={styles.heroButton} href={`${locale === 'en' ? '/business-succession/' : locale === 'fr' ? '/fr/' : '/'}#contact`}>
           {hero.action} <span aria-hidden="true">↗</span>
         </Link>
       </InViewMotion>
@@ -107,14 +107,16 @@ function formatPostDate(date) {
 
 export function BlogCardGrid({ locale = 'de', posts = blogPosts }) {
   const isEnglish = locale === 'en';
+  const isFrench = locale === 'fr';
+  const dateLocale = locale === 'en' ? 'en-GB' : locale === 'fr' ? 'fr-FR' : 'de-DE';
   return (
     <section className={styles.blog} id="blog" aria-labelledby="value-blog-title">
       <div className={styles.blogHeading}>
         <h2 id="value-blog-title">
-          {isEnglish ? <>Insights from <span>our network</span></> : <>Impulse aus <span>unserem Netzwerk</span></>}
+          {isEnglish ? <>Insights from <span>our network</span></> : isFrench ? <>Perspectives de <span>notre réseau</span></> : <>Impulse aus <span>unserem Netzwerk</span></>}
         </h2>
-        <Link className={styles.textLink} href={`${isEnglish ? '/business-succession/' : '/'}#blog`}>
-          {isEnglish ? 'All articles' : 'Alle Beiträge'} <span aria-hidden="true">↗</span>
+        <Link className={styles.textLink} href={`${isEnglish ? '/business-succession/' : isFrench ? '/fr/' : '/'}#blog`}>
+          {isEnglish ? 'All articles' : isFrench ? 'Tous les articles' : 'Alle Beiträge'} <span aria-hidden="true">↗</span>
         </Link>
       </div>
       <div className={styles.blogGrid}>
@@ -127,7 +129,7 @@ export function BlogCardGrid({ locale = 'de', posts = blogPosts }) {
                 aria-hidden="true"
               />
               <p className={styles.blogMeta}>
-                {new Intl.DateTimeFormat(isEnglish ? 'en-GB' : 'de-DE', { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${post.date}T00:00:00Z`))} <span aria-hidden="true">|</span> {post.label}
+                {new Intl.DateTimeFormat(dateLocale, { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${post.date}T00:00:00Z`))} <span aria-hidden="true">|</span> {post.label}
               </p>
               <h3>{post.title}</h3>
               <span className={styles.blogArrow} aria-hidden="true">↗</span>

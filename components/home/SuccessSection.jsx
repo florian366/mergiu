@@ -11,7 +11,11 @@ const headingLinesDe = [
 ];
 
 export default function SuccessSection({ locale = 'de' }) {
-  const headingLines = locale === 'en' ? ['The future of your business', 'starts with us.'] : headingLinesDe;
+  const headingLines = locale === 'en'
+    ? ['The future of your business', 'starts with us.']
+    : locale === 'fr'
+      ? ['L’avenir de votre entreprise', 'commence avec nous.']
+      : headingLinesDe;
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -32,8 +36,8 @@ export default function SuccessSection({ locale = 'de' }) {
             y: shouldReduceMotion ? 0 : y,
           }}
         >
-          <Link className="button success-button" href={locale === 'en' ? '/present-your-business/' : '/buchung/'}>
-            {locale === 'en' ? 'Get in touch' : 'Kontakt aufnehmen'} <span aria-hidden="true">↗</span>
+          <Link className="button success-button" href={locale === 'en' ? '/present-your-business/' : locale === 'fr' ? '/fr/presenter-votre-entreprise/' : '/buchung/'}>
+            {locale === 'en' ? 'Get in touch' : locale === 'fr' ? 'Nous contacter' : 'Kontakt aufnehmen'} <span aria-hidden="true">↗</span>
           </Link>
         </motion.div>
       </div>
