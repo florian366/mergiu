@@ -241,7 +241,6 @@ function Benefits({ benefits }) {
 function Contact({ contact, locale = 'de' }) {
   const isEnglish = locale === 'en';
   const isFrench = locale === 'fr';
-  const mailto = `mailto:info@mergiu.de?subject=${encodeURIComponent(contact.subject)}`;
 
   return (
     <InViewMotion as="section" className={styles.contact} id="kontakt">
@@ -249,7 +248,7 @@ function Contact({ contact, locale = 'de' }) {
           <SectionLabel>{isEnglish ? 'The next step' : isFrench ? 'La prochaine étape' : 'Der nächste Schritt'}</SectionLabel>
         <h2>{contact.title}</h2>
         <p>{contact.text}</p>
-        <a className={styles.button} href={mailto}>
+        <a className={styles.button} href="https://mergiu.com/buchung/">
           {contact.action} <span aria-hidden="true">↗</span>
         </a>
       </div>
