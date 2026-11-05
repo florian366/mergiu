@@ -49,13 +49,25 @@
     link.href = 'https://mergiu.com/buchung/';
   });
 
-  // Force text presentation so iOS does not render the CTA arrow as a colored emoji.
-  const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  const arrowTextNodes = [];
-  while (textWalker.nextNode()) arrowTextNodes.push(textWalker.currentNode);
-  arrowTextNodes.forEach((node) => {
-    node.nodeValue = node.nodeValue.replaceAll('↗', '↗\uFE0E');
+  // Keep arrow glyphs in text presentation, including text inserted by translation scripts.
+  const normalizeArrowText = (node) => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      node.nodeValue = node.nodeValue.replace(/↗(?!\uFE0E)/g, '↗\uFE0E');
+    }
+  };
+  const normalizeArrows = (rootNode) => {
+    normalizeArrowText(rootNode);
+    const textWalker = document.createTreeWalker(rootNode, NodeFilter.SHOW_TEXT);
+    while (textWalker.nextNode()) normalizeArrowText(textWalker.currentNode);
+  };
+  normalizeArrows(document.body);
+  const arrowObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'characterData') normalizeArrowText(mutation.target);
+      mutation.addedNodes?.forEach(normalizeArrows);
+    });
   });
+  arrowObserver.observe(document.body, { childList: true, characterData: true, subtree: true });
 
   const stylesheet = document.createElement('link');
   stylesheet.rel = 'stylesheet';

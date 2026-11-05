@@ -42,7 +42,7 @@ export default function BookingRegistration({ locale = 'de' }) {
             <input type="checkbox" checked={consented} onChange={(event) => setConsented(event.target.checked)} />
             <span>{isEnglish ? <>I confirm that I am acting on behalf of a business and accept the <a href="/terms-and-conditions/" target="_blank" rel="noopener">terms and conditions</a> and the <a href="/terms-and-conditions/#geld-zurueck-garantie" target="_blank" rel="noopener">two-year money-back guarantee</a>.</> : isFrench ? <>Je confirme agir au nom d’une entreprise et accepter les <a href="/fr/conditions-generales/" target="_blank" rel="noopener">conditions générales</a> ainsi que la <a href="/fr/conditions-generales/#garantie" target="_blank" rel="noopener">garantie de remboursement de deux ans</a>.</> : <>Ich bestätige, dass ich im Namen eines Unternehmens handle, und akzeptiere die <a href="/agb.html" target="_blank" rel="noopener">AGB</a> sowie die Bedingungen der <a href="/agb.html#geld-zurueck-garantie" target="_blank" rel="noopener">2-Jahres-Geld-zurück-Garantie</a>.</>}</span>
           </label>
-          <button className={styles.submitButton} id="open-network-form" type="button" disabled={!consented} onClick={showForm}>{isEnglish ? 'Register your business' : isFrench ? 'Inscrire votre entreprise' : 'Unternehmen registrieren'} <span>↗</span></button>
+          <button className={styles.submitButton} id="open-network-form" type="button" disabled={!consented} onClick={showForm}>{isEnglish ? 'Register your business' : isFrench ? 'Inscrire votre entreprise' : 'Unternehmen registrieren'} <span>↗︎</span></button>
         </div>
       )}
       {view === 'form' && (
@@ -55,7 +55,7 @@ export default function BookingRegistration({ locale = 'de' }) {
             <label>{isEnglish ? 'Email' : isFrench ? 'Adresse e-mail' : 'E-Mail'}<input name="email" type="email" required placeholder={isEnglish ? 'your@email.com' : isFrench ? 'vous@exemple.fr' : 'ihre@email.de'} /></label>
             <label>{isEnglish ? 'Phone' : isFrench ? 'Téléphone' : 'Telefon'}<input name="phone" type="tel" placeholder={isEnglish ? 'Your phone number' : isFrench ? 'Votre numéro de téléphone' : 'Ihre Telefonnummer'} /></label>
             <label>{isEnglish ? 'Context' : isFrench ? 'Contexte' : 'Kontext'}<textarea name="context" rows="4" placeholder={isEnglish ? 'How do you envision the succession? Where does your business stand today?' : isFrench ? 'Comment envisagez-vous la transmission ? Où en est votre entreprise aujourd’hui ?' : 'Wie stellen Sie sich die Unternehmensnachfolge vor? Wo stehen Sie mit Ihrem Unternehmen aktuell?'} /></label>
-            <button className={styles.submitButton} type="submit">{isEnglish ? 'Confirm details' : isFrench ? 'Confirmer les informations' : 'Angaben bestätigen'} <span>↗</span></button>
+            <button className={styles.submitButton} type="submit">{isEnglish ? 'Confirm details' : isFrench ? 'Confirmer les informations' : 'Angaben bestätigen'} <span>↗︎</span></button>
           </form>
         </div>
       )}
@@ -64,7 +64,7 @@ export default function BookingRegistration({ locale = 'de' }) {
           <p className={styles.eyebrow}>{isEnglish ? 'Thank you' : isFrench ? 'Merci' : 'Vielen Dank'}</p>
           <h2>{isEnglish ? 'Your details have been confirmed.' : isFrench ? 'Vos informations sont confirmées.' : 'Ihre Angaben sind bestätigt.'}</h2>
           <p>{isEnglish ? 'One step remains: securely pay the one-time processing fee of EUR 184 via Stripe.' : isFrench ? 'Dernière étape : réglez en toute sécurité les frais uniques de 184 € via Stripe.' : 'Nur noch ein Schritt fehlt: Schließen Sie die einmalige Bearbeitungsgebühr von 184€ sicher über Stripe ab.'}</p>
-          <a className={`${styles.submitButton} ${styles.stripeLink}`} href={STRIPE_CHECKOUT} target="_blank" rel="noopener">{isEnglish ? 'Pay EUR 184 via Stripe' : isFrench ? 'Payer 184 € via Stripe' : '184€ über Stripe bezahlen'} <span>↗</span></a>
+          <a className={`${styles.submitButton} ${styles.stripeLink}`} href={STRIPE_CHECKOUT} target="_blank" rel="noopener">{isEnglish ? 'Pay EUR 184 via Stripe' : isFrench ? 'Payer 184 € via Stripe' : '184€ über Stripe bezahlen'} <span>↗︎</span></a>
         </div>
       )}
     </InViewMotion>

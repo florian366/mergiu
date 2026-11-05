@@ -45,7 +45,7 @@ export default function BookingPage({ locale = 'de', industries: pageIndustries 
           <div className={styles.mentorImage} aria-hidden="true" />
           <InViewMotion className={styles.darkCopy}>
             <h2>{isEnglish ? <>Find the right successor <em>for your business today.</em></> : isFrench ? <>Trouvez le bon repreneur <em>pour votre entreprise.</em></> : <>Finden Sie noch heute den passenden Nachfolger <em>für Ihr Unternehmen.</em></>}</h2>
-            <Link className={styles.pill} href="#slide-1">{isEnglish ? 'Get in touch ↗' : isFrench ? 'Nous contacter ↗' : 'Kontakt aufnehmen ↗'}</Link>
+            <Link className={styles.pill} href="#slide-1">{isEnglish ? 'Get in touch ↗︎' : isFrench ? 'Nous contacter ↗︎' : 'Kontakt aufnehmen ↗︎'}</Link>
           </InViewMotion>
         </section>
       </BookingSlider>

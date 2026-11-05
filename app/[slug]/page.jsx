@@ -273,7 +273,7 @@ function englishArticleData(article, route) {
     if (index === 0) blocks.push({ type: 'h2', text: heading });
     blocks.push({ type: 'p', content: paragraph });
   });
-  blocks.push({ type: 'cta', title: 'Considering a sale or succession?', text: 'Tell us about your business. We will discuss suitable next steps with you confidentially.', label: 'Present your business ↗', href: '/present-your-business/' });
+  blocks.push({ type: 'cta', title: 'Considering a sale or succession?', text: 'Tell us about your business. We will discuss suitable next steps with you confidentially.', label: 'Present your business ↗︎', href: '/present-your-business/' });
 
   return {
     ...article,

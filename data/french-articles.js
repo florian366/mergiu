@@ -59,7 +59,7 @@ export const frenchVeterinaryArticle = {
     { type: 'h2', text: 'L’accompagnement de MERGIU' },
     { type: 'p', content: 'MERGIU met en relation les propriétaires de cabinets avec des repreneurs, des praticiens, des groupes et des investisseurs de son réseau. Nous prenons le temps de comprendre votre situation et vos attentes avant d’explorer les contacts adaptés.' },
     { type: 'p', content: 'Les vendeurs ne paient pas de commission d’intermédiation liée au succès. L’inscription et la préparation d’un profil d’entreprise donnent lieu à des frais uniques de 184 euros.' },
-    { type: 'cta', title: 'Vous envisagez de transmettre votre cabinet vétérinaire ?', text: 'Échangez avec MERGIU sur les options possibles, en toute confidentialité.', label: 'Présenter votre cabinet ↗', href: '/fr/presenter-votre-entreprise/' },
+    { type: 'cta', title: 'Vous envisagez de transmettre votre cabinet vétérinaire ?', text: 'Échangez avec MERGIU sur les options possibles, en toute confidentialité.', label: 'Présenter votre cabinet ↗︎', href: '/fr/presenter-votre-entreprise/' },
     { type: 'h2', text: 'Une transmission qui prépare la suite' },
     { type: 'p', content: 'La réussite d’une transmission ne se mesure pas uniquement au prix de vente. Un projet solide protège la continuité du cabinet, donne une perspective à l’équipe et permet au repreneur de poursuivre le développement de l’activité.' },
   ],
@@ -78,7 +78,7 @@ function makeFrenchArticle({ slug, heading, description, category, date, imageSr
     type: 'cta',
     title: 'Vous préparez la transmission de votre entreprise ?',
     text: 'Échangez avec MERGIU sur les prochaines étapes, en toute confidentialité.',
-    label: 'Présenter votre entreprise ↗',
+    label: 'Présenter votre entreprise ↗︎',
     href: '/fr/presenter-votre-entreprise/',
   });
 

@@ -82,7 +82,7 @@ export default async function CategoryPage({ searchParams }) {
                       <small>{post.category}</small>
                       <h3>{post.title}</h3>
                       <p>{post.text}</p>
-                      <strong>Beitrag lesen ↗</strong>
+                      <strong>Beitrag lesen ↗︎</strong>
                     </div>
                   </Link>
                 </InViewMotion>

@@ -39,7 +39,7 @@ export default function TipsterPage({ locale = 'de', industries: pageIndustries 
             <p className={styles.eyebrow}>FÜR AUFMERKSAME UNTERNEHMER UND MENSCHEN IM NETZWERK</p>
             <h1>Kennen Sie ein Unternehmen, das einen <em>Nachfolger sucht?</em></h1>
             <p className={styles.lead}>Geben Sie uns einen diskreten Hinweis und erhalten Sie <strong>500€ Tippgeberprämie</strong> bei erfolgreicher Vermittlung.</p>
-            <div className={styles.heroActions}><Link className={`${styles.button} ${styles.buttonLight}`} href="#tipp">Jetzt Tipp abgeben <span aria-hidden="true">↗</span></Link><Link className={styles.textLink} href="#ablauf">Mehr erfahren <span aria-hidden="true">↓</span></Link></div>
+            <div className={styles.heroActions}><Link className={`${styles.button} ${styles.buttonLight}`} href="#tipp">Jetzt Tipp abgeben <span aria-hidden="true">↗︎</span></Link><Link className={styles.textLink} href="#ablauf">Mehr erfahren <span aria-hidden="true">↓</span></Link></div>
           </InViewMotion>
           <InViewMotion className={styles.heroNote} delay={0.08}><strong>500€</strong><span>Tippgeberprämie<br />bei erfolgreicher Vermittlung</span></InViewMotion>
         </section>

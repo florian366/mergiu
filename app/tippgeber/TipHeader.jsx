@@ -19,7 +19,7 @@ export default function TipHeader() {
         <Link href="#vorteile" onClick={closeMenu}>Ihre Vorteile</Link>
         <Link href="#faq" onClick={closeMenu}>FAQ</Link>
       </nav>
-      <Link className={styles.headerCta} href="#tipp">Jetzt Tipp abgeben <span aria-hidden="true">↗</span></Link>
+      <Link className={styles.headerCta} href="#tipp">Jetzt Tipp abgeben <span aria-hidden="true">↗︎</span></Link>
       <LanguageSwitcher />
       <button className={styles.menuButton} type="button" aria-label={menuOpen ? 'Menü schließen' : 'Menü öffnen'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}><i /><i /></button>
     </header>
