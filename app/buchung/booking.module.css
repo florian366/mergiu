@@ -104,7 +104,7 @@
   .slide { width: 100%; height: auto; min-height: 0; overflow: visible; }
   .heroSlide { min-height: 100svh; padding-bottom: 8vh; }
   .heroSlide::after { top: 10vh; left: 8%; width: 84%; }
-  .heroContent { position: relative; top: auto; left: auto; width: auto; padding: 25vh 8% 0; }
+  .heroContent { position: relative; top: 2vh; left: 3%; width: auto; padding: 25vh 8% 0; }
   .heroContent h1 { font-size: clamp(42px, 10vw, 70px); }
   .networkCard { position: relative; top: auto; right: auto; width: auto; margin: 13vh 8% 0; padding: 24px; }
   .introHeading { margin: -24px -24px 20px; padding: 20px 24px; }
