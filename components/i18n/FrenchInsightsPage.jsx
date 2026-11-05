@@ -27,7 +27,7 @@ export default function FrenchInsightsPage() {
                       <small>{post.label}</small>
                       <h2>{post.title}</h2>
                       <span>{post.text}</span>
-                      <strong>Lire l’article ↗</strong>
+                      <strong>Lire l’article ↗︎</strong>
                     </div>
                   </Link>
                 </InViewMotion>

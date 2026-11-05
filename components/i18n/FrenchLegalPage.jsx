@@ -36,7 +36,7 @@ export default function FrenchLegalPage({ route }) {
           <p className={styles.eyebrow}>MERGIU · INFORMATIONS JURIDIQUES</p>
           <h1>{legal.title}</h1>
           <p>{legal.text}</p>
-          <Link className={styles.button} href={legal.href} hrefLang="de" data-no-locale="true">{legal.label} ↗</Link>
+          <Link className={styles.button} href={legal.href} hrefLang="de" data-no-locale="true">{legal.label} ↗︎</Link>
         </section>
       </main>
       <SiteFooter industries={frenchIndustries} locale="fr" />

@@ -31,7 +31,7 @@ export default function BlogPreview({ posts, categories, locale = 'de' }) {
             {isEnglish ? 'The article explains what makes a successful handover, from professional and personal fit to timing your succession search, and how to approach interested parties discreetly without a broker commission.' : isFrench ? 'Cet article présente les facteurs clés d’une reprise réussie : la compatibilité professionnelle et humaine, le bon moment pour lancer la recherche et une prise de contact discrète, sans commission de courtage pour le vendeur.' : 'Der Beitrag zeigt, worauf es bei einer gelungenen Übergabe ankommt – von der fachlichen und menschlichen Passung bis zum richtigen Zeitpunkt für die Nachfolgesuche. Außerdem erfahren Sie, wie Sie mögliche Interessenten diskret ansprechen und Ihre Praxis ohne Maklerprovision in gute Hände übergeben können.'}
           </p>
           <Link className="button" href={newestPost.localizedHref || `/${newestPost.slug}/`}>
-            {isEnglish ? 'Read article ↗' : isFrench ? 'Lire l’article ↗' : 'Beitrag lesen ↗'}
+            {isEnglish ? 'Read article ↗︎' : isFrench ? 'Lire l’article ↗︎' : 'Beitrag lesen ↗︎'}
           </Link>
         </article>
 

@@ -23,7 +23,7 @@ export function ValueHero({ hero, locale = 'de' }) {
         </h1>
         <p className={styles.heroLead}>{hero.lead}</p>
         <Link className={styles.heroButton} href={`${locale === 'en' ? '/business-succession/' : locale === 'fr' ? '/fr/' : '/'}#contact`}>
-          {hero.action} <span aria-hidden="true">↗</span>
+          {hero.action} <span aria-hidden="true">↗︎</span>
         </Link>
       </InViewMotion>
       <span className={styles.heroIndex} aria-hidden="true">{hero.index}</span>
@@ -64,7 +64,7 @@ export function PrinciplesGrid({ principles }) {
               className={`${styles.principleIcon} ${index > 0 ? styles[`icon${index + 1}`] : ''}`}
               aria-hidden="true"
             >
-              {['◌', '⌖', '↗', '⌁'][index]}
+              {['◌', '⌖', '↗︎', '⌁'][index]}
             </div>
             <h3>{item.title}</h3>
             <p>{item.text}</p>
@@ -89,7 +89,7 @@ export function StoryBlock({ story }) {
         <h2>{story.title}</h2>
         {story.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         <Link className={styles.textLink} href="/#contact">
-          {story.action} <span aria-hidden="true">↗</span>
+          {story.action} <span aria-hidden="true">↗︎</span>
         </Link>
       </div>
     </InViewMotion>
@@ -116,7 +116,7 @@ export function BlogCardGrid({ locale = 'de', posts = blogPosts }) {
           {isEnglish ? <>Insights from <span>our network</span></> : isFrench ? <>Perspectives de <span>notre réseau</span></> : <>Impulse aus <span>unserem Netzwerk</span></>}
         </h2>
         <Link className={styles.textLink} href={`${isEnglish ? '/business-succession/' : isFrench ? '/fr/' : '/'}#blog`}>
-          {isEnglish ? 'All articles' : isFrench ? 'Tous les articles' : 'Alle Beiträge'} <span aria-hidden="true">↗</span>
+          {isEnglish ? 'All articles' : isFrench ? 'Tous les articles' : 'Alle Beiträge'} <span aria-hidden="true">↗︎</span>
         </Link>
       </div>
       <div className={styles.blogGrid}>
@@ -132,7 +132,7 @@ export function BlogCardGrid({ locale = 'de', posts = blogPosts }) {
                 {new Intl.DateTimeFormat(dateLocale, { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${post.date}T00:00:00Z`))} <span aria-hidden="true">|</span> {post.label}
               </p>
               <h3>{post.title}</h3>
-              <span className={styles.blogArrow} aria-hidden="true">↗</span>
+              <span className={styles.blogArrow} aria-hidden="true">↗︎</span>
             </Link>
           </InViewMotion>
         ))}

@@ -37,7 +37,7 @@ export default function ProcessAccordion({ items, locale = 'de' }) {
                     <p>{item.summary}</p>
                     <small>{item.detail}</small>
                     <Link className="button" href={item.href}>
-                      {locale === 'en' ? 'Learn more ↗' : locale === 'fr' ? 'En savoir plus ↗' : 'mehr erfahren ↗'}
+                      {locale === 'en' ? 'Learn more ↗︎' : locale === 'fr' ? 'En savoir plus ↗︎' : 'mehr erfahren ↗︎'}
                     </Link>
                   </div>
                   <div className={`accordion-image ${item.imageClass}`} aria-hidden="true" />

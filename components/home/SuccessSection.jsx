@@ -37,7 +37,7 @@ export default function SuccessSection({ locale = 'de' }) {
           }}
         >
           <Link className="button success-button" href={locale === 'en' ? '/present-your-business/' : locale === 'fr' ? '/fr/presenter-votre-entreprise/' : '/buchung/'}>
-            {locale === 'en' ? 'Get in touch' : locale === 'fr' ? 'Nous contacter' : 'Kontakt aufnehmen'} <span aria-hidden="true">↗</span>
+            {locale === 'en' ? 'Get in touch' : locale === 'fr' ? 'Nous contacter' : 'Kontakt aufnehmen'} <span aria-hidden="true">↗︎</span>
           </Link>
         </motion.div>
       </div>

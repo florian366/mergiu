@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import MainNavigation from './MainNavigation';
 import PromoBanner from './PromoBanner';
-import LanguageSwitcher from './LanguageSwitcher';
 
 export default function SiteHeader({ isHomePage = false, locale = 'de' }) {
   const isEnglish = locale === 'en';
@@ -18,9 +17,8 @@ export default function SiteHeader({ isHomePage = false, locale = 'de' }) {
         </Link>
         <MainNavigation isHomePage={isHomePage} locale={locale} />
         <Link className="contact-pill" href={bookingHref}>
-          {isEnglish ? 'Get in touch' : isFrench ? 'Nous contacter' : 'Kontakt aufnehmen'} <span aria-hidden="true">↗</span>
+          {isEnglish ? 'Get in touch' : isFrench ? 'Nous contacter' : 'Kontakt aufnehmen'} <span aria-hidden="true">↗︎</span>
         </Link>
-        <LanguageSwitcher />
       </header>
     </>
   );

@@ -12,7 +12,7 @@ function SectionLabel({ children, className }) {
 function ActionLink({ children }) {
   return (
     <Link className={styles.button} href="#kontakt">
-      {children} <span aria-hidden="true">↗</span>
+      {children} <span aria-hidden="true">↗︎</span>
     </Link>
   );
 }
@@ -249,7 +249,7 @@ function Contact({ contact, locale = 'de' }) {
         <h2>{contact.title}</h2>
         <p>{contact.text}</p>
         <a className={styles.button} href="https://mergiu.com/buchung/">
-          {contact.action} <span aria-hidden="true">↗</span>
+          {contact.action} <span aria-hidden="true">↗︎</span>
         </a>
       </div>
       <div className={styles.fee}>

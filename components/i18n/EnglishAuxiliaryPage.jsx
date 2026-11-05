@@ -40,7 +40,7 @@ export default function EnglishAuxiliaryPage({ route, industries: pageIndustries
               <p className={styles.eyebrow}>MERGIU · REFERRAL REWARD</p>
               <h1>Know a business looking for a successor?</h1>
               <p>Send us a discreet tip. If it leads to a successful introduction, you may receive a EUR 500 referral reward under the agreed conditions.</p>
-              <Link className={styles.button} href="#tip-form">Send us a tip ↗</Link>
+              <Link className={styles.button} href="#tip-form">Send us a tip ↗︎</Link>
             </section>
             <section className={styles.copy}>
               <h2>How it works</h2>
@@ -63,7 +63,7 @@ export default function EnglishAuxiliaryPage({ route, industries: pageIndustries
             <p className={styles.eyebrow}>MERGIU · LEGAL</p>
             <h1>{legal.title}</h1>
             <p>{legal.text}</p>
-            <Link className={styles.button} href={legal.href}>{legal.label} ↗</Link>
+            <Link className={styles.button} href={legal.href}>{legal.label} ↗︎</Link>
           </section>
         )}
       </main>

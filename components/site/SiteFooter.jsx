@@ -21,7 +21,7 @@ export default function SiteFooter({ industries, locale = 'de' }) {
           </Link>
           <p>{isEnglish ? 'Personal, discreet and connected across industries.' : isFrench ? 'Un accompagnement personnel, discret et intersectoriel.' : 'Persönlich, diskret und branchenübergreifend vernetzt.'}</p>
           <Link className="site-footer-cta" href={isEnglish ? '/present-your-business/' : isFrench ? '/fr/presenter-votre-entreprise/' : '/buchung/'}>
-            {isEnglish ? 'Present your business' : isFrench ? 'Présenter votre entreprise' : 'Unternehmen verkaufen'} <span aria-hidden="true">↗</span>
+            {isEnglish ? 'Present your business' : isFrench ? 'Présenter votre entreprise' : 'Unternehmen verkaufen'} <span aria-hidden="true">↗︎</span>
           </Link>
         </div>
 

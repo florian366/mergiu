@@ -17,7 +17,7 @@ export default function IntroSection({ locale = 'de' }) {
           {isEnglish ? 'Personal, discreet and cross-industry. For a business succession that values what you have built and creates a strong foundation for the future.' : isFrench ? 'Une approche personnelle, discrète et intersectorielle pour transmettre votre entreprise en valorisant ce que vous avez construit et en préparant l’avenir.' : 'Persönlich, diskret und branchenübergreifend. Für eine Unternehmensnachfolge, die das Fundament Ihres Unternehmens wertschätzt und langfristig darauf aufbaut.'}
         </p>
         <Link className="underlink" href={isEnglish ? '/present-your-business/' : isFrench ? '/fr/presenter-votre-entreprise/' : '/buchung/'}>
-          {isEnglish ? 'Find a successor for your business ↗' : isFrench ? 'Présenter votre entreprise ↗' : 'Unternehmen vermitteln lassen ↗'}
+          {isEnglish ? 'Find a successor for your business ↗︎' : isFrench ? 'Présenter votre entreprise ↗︎' : 'Unternehmen vermitteln lassen ↗︎'}
         </Link>
       </div>
 

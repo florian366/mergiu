@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function MainNavigation({ isHomePage, locale = 'de' }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,6 +47,7 @@ export default function MainNavigation({ isHomePage, locale = 'de' }) {
         <Link className="mobile-nav-link" href={isEnglish ? '/present-your-business/' : isFrench ? '/fr/presenter-votre-entreprise/' : '/buchung/'} onClick={closeMenu}>
           {isEnglish ? 'Find a successor' : isFrench ? 'Trouver un repreneur' : 'Nachfolger finden'}
         </Link>
+        <LanguageSwitcher />
       </nav>
       <button
         className="menu"

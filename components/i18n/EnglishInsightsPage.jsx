@@ -26,7 +26,7 @@ export default function EnglishInsightsPage({ posts, industries: pageIndustries 
                     <small>{post.label}</small>
                     <h2>{post.title}</h2>
                     <span>{post.text}</span>
-                    <strong>Read article ↗</strong>
+                    <strong>Read article ↗︎</strong>
                   </div>
                 </Link>
               </InViewMotion>
